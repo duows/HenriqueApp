@@ -14,7 +14,7 @@ namespace HenriqueApp.Domain.Entities
 
         }
 
-        public TimeCampeonato(int id, Times? time, Temporada? temp, int? pontos, int? posicao, int? golpro, int? golcon) : base(id)
+        public TimeCampeonato(int id, Times? time, TempCamp? temp, int? pontos, int? posicao, int? golpro, int? golcon) : base(id)
         {
             Time = time;
             Temp = temp;
@@ -24,7 +24,7 @@ namespace HenriqueApp.Domain.Entities
             Golcon = golcon;
         }
         public Times? Time { get; set; }
-        public Temporada? Temp { get; set; }
+        public TempCamp? Temp { get; set; }
         public int? Pontos { get; set; }
         public int? Posicao { get; set; }
         public int? Golpro { get; set; }

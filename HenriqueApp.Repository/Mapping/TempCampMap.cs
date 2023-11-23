@@ -19,15 +19,15 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.Property(prop => prop.Premio)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(45)");
 
             builder.Property(prop => prop.Campeao)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(50)");
 
-            builder.HasKey(prop => prop.Camp);
+            builder.HasOne(prop => prop.Camp);
 
-            builder.HasKey(prop => prop.Temp);
+            builder.HasOne(prop => prop.Temp);
         }
     }
 }

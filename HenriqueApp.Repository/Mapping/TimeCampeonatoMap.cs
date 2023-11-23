@@ -17,21 +17,13 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Posicao)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Posicao);
 
-            builder.Property(prop => prop.Pontos)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Pontos);
+                
+            builder.Property(prop => prop.Golpro);
 
-            builder.Property(prop => prop.Golpro)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
-
-            builder.Property(prop => prop.Golcon)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Golcon);
 
             builder.HasOne(prop => prop.Time);
 

@@ -18,22 +18,17 @@ namespace HenriqueApp.Repository.Mapping
             builder.HasKey(prop => prop.Id);
 
             builder.Property(prop => prop.Data)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasDefaultValue(DateTime.Now);
 
-            builder.Property(prop => prop.Gol1)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Gol1);
 
-            builder.Property(prop => prop.Gol2)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Gol2);
 
-            builder.HasKey(prop => prop.TempCampId);
+            builder.HasOne(prop => prop.TempCampId);
 
-            builder.HasKey(prop => prop.Time1);
+            builder.HasOne(prop => prop.Time1);
 
-            builder.HasKey(prop => prop.Time2);
+            builder.HasOne(prop => prop.Time2);
         }
     }
 }

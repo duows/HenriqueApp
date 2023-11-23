@@ -21,21 +21,13 @@ namespace HenriqueApp.Repository.Mapping
                 .IsRequired()
                 .HasColumnType("varchar(50)");
 
-            builder.Property(prop => prop.Idade)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Idade);
 
-            builder.Property(prop => prop.Gols)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Gols);
 
-            builder.Property(prop => prop.Assist)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Assist);
 
-            builder.Property(prop => prop.Capitao)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
+            builder.Property(prop => prop.Capitao);
 
             builder.HasOne(prop => prop.Time);
 

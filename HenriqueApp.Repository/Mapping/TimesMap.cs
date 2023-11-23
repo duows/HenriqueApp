@@ -19,7 +19,7 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.Property(prop => prop.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(50)");
 
         }
     }
