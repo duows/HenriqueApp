@@ -14,7 +14,7 @@ namespace HenriqueApp.Domain.Entities
 
         }
 
-        public Partida(int id, string? data, int? gol1, int? gol2, Times? time1, Times? time2, TempCamp? tempCamp) : base(id)
+        public Partida(int id, DateTime? data, int? gol1, int? gol2, Times? time1, Times? time2, TempCamp? tempCamp) : base(id)
         {
             Data = data;
             Gol1 = gol1;
@@ -23,7 +23,7 @@ namespace HenriqueApp.Domain.Entities
             Time2 = time2;
             TempCampId = tempCamp;
         }
-        public string? Data { get; set; }
+        public DateTime? Data { get; set; }
         public int? Gol1 { get; set; }
         public int? Gol2 { get; set; }
         public Times? Time1 { get; set; }
