@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Cadastros\" />
-    <Folder Include="Config\" />
-    <Folder Include="Infra\" />
-    <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="Outros\" />
     <Folder Include="Properties\" />
