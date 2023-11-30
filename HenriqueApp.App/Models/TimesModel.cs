@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HenriqueApp.App.Models
 {
-    internal class TimesModel
+    public class TimesModel
     {
+        public string? Nome { get; set; }
     }
 }

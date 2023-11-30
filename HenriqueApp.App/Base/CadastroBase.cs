@@ -29,7 +29,7 @@ namespace HenriqueApp.App.Base
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(@"Deseja realmente cancelar?", @"Henrique App", MessageBoxButtons.YesNo,
+            if (MessageBox.Show(@"Deseja realmente cancelar?", @"IFSP Store", MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
@@ -57,7 +57,7 @@ namespace HenriqueApp.App.Base
         {
             if (dataGridViewConsulta.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show(@"Deseja realmente deletar?", @"Henrique App", MessageBoxButtons.YesNo,
+                if (MessageBox.Show(@"Deseja realmente deletar?", @"IFSP Store", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question)
                     == DialogResult.Yes)
                 {
@@ -68,7 +68,7 @@ namespace HenriqueApp.App.Base
             }
             else
             {
-                MessageBox.Show(@"Selecione algum registro!", @"Henrique App", MessageBoxButtons.OK,
+                MessageBox.Show(@"Selecione algum registro!", @"IFSP Store", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }

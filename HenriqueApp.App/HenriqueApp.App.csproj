@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HenriqueApp.Domain\HenriqueApp.Domain.csproj" />
+    <ProjectReference Include="..\HenriqueApp.Repository\HenriqueApp.Repository.csproj" />
     <ProjectReference Include="..\HenriqueApp.Service\HenriqueApp.Service.csproj" />
   </ItemGroup>
 

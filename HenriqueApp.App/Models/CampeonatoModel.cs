@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HenriqueApp.App.Models
 {
-    internal class CampeonatoModel
+    public class CampeonatoModel
     {
+        public string? Nome { get; set; }
     }
 }

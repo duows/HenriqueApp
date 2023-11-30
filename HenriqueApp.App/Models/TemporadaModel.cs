@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HenriqueApp.App.Models
 {
-    internal class TemporadaModel
+    public class TemporadaModel
     {
+        public string? Ano { get; set; }
     }
 }
