@@ -21,4 +21,9 @@
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HenriqueApp.Domain\HenriqueApp.Domain.csproj" />
+    <ProjectReference Include="..\HenriqueApp.Service\HenriqueApp.Service.csproj" />
+  </ItemGroup>
+
 </Project>
