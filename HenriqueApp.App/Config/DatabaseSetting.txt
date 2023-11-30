@@ -1,1 +1,1 @@
-﻿Server=localhost;Port=3306;Database=;Uid=root;Pwd=1122
+﻿Server=localhost;Port=3306;Database=campeonatos;Uid=root;Pwd=

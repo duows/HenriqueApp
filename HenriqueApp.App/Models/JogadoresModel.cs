@@ -15,7 +15,7 @@ namespace HenriqueApp.App.Models
         public int? Assist { get; set; }
         //public Times? Time { get; set; }
         public int IdTime { get; set; }
-        public string NomeTime { get; set; }
+        public string? NomeTime { get; set; }
         public int? Capitao { get; set; }
     }
 }

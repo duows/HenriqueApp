@@ -11,7 +11,7 @@ namespace HenriqueApp.App.Models
     {
         //public Times? Time { get; set; }
         public int IdTime { get; set; }
-        public string NomeTime { get; set; }
+        public string ?NomeTime { get; set; }
         //public TempCamp? Temp { get; set; }
         public int IdTempCamp { get; set; }
         public int? Pontos { get; set; }
