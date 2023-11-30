@@ -40,7 +40,6 @@
                 btnExcluir = new ReaLTaiizor.Controls.MaterialButton();
                 btnEditar = new ReaLTaiizor.Controls.MaterialButton();
                 btnNovo = new ReaLTaiizor.Controls.MaterialButton();
-                imageList = new ImageList(components);
                 materialTabControl.SuspendLayout();
                 tabPageCadastro.SuspendLayout();
                 panel1.SuspendLayout();
@@ -54,7 +53,6 @@
                 materialTabControl.Controls.Add(tabPageConsulta);
                 materialTabControl.Depth = 0;
                 materialTabControl.Dock = DockStyle.Fill;
-                materialTabControl.ImageList = imageList;
                 materialTabControl.Location = new Point(3, 64);
                 materialTabControl.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
                 materialTabControl.Multiline = true;
@@ -66,7 +64,6 @@
                 // tabPageCadastro
                 // 
                 tabPageCadastro.Controls.Add(panel1);
-                tabPageCadastro.ImageKey = "form.png";
                 tabPageCadastro.Location = new Point(4, 31);
                 tabPageCadastro.Name = "tabPageCadastro";
                 tabPageCadastro.Padding = new Padding(3, 3, 3, 3);
@@ -135,7 +132,6 @@
                 tabPageConsulta.Controls.Add(btnExcluir);
                 tabPageConsulta.Controls.Add(btnEditar);
                 tabPageConsulta.Controls.Add(btnNovo);
-                tabPageConsulta.ImageKey = "search.png";
                 tabPageConsulta.Location = new Point(4, 31);
                 tabPageConsulta.Name = "tabPageConsulta";
                 tabPageConsulta.Padding = new Padding(3, 3, 3, 3);
@@ -228,14 +224,6 @@
                 btnNovo.UseVisualStyleBackColor = true;
                 btnNovo.Click += btnNovo_Click;
                 // 
-                // imageList
-                // 
-                imageList.ColorDepth = ColorDepth.Depth32Bit;
-                imageList.ImageStream = (ImageListStreamer)resources.GetObject("imageList.ImageStream");
-                imageList.TransparentColor = Color.Transparent;
-                imageList.Images.SetKeyName(0, "form.png");
-                imageList.Images.SetKeyName(1, "search.png");
-                // 
                 // CadastroBase
                 // 
                 AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,7 +249,6 @@
             private ReaLTaiizor.Controls.MaterialButton btnExcluir;
             private ReaLTaiizor.Controls.MaterialButton btnEditar;
             private ReaLTaiizor.Controls.MaterialButton btnNovo;
-            private ImageList imageList;
             protected ReaLTaiizor.Controls.MaterialTabControl materialTabControl;
             protected TabPage tabPageCadastro;
             protected DataGridView dataGridViewConsulta;
