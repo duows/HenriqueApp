@@ -17,5 +17,10 @@ namespace HenriqueApp.App.Cadastros
         {
             InitializeComponent();
         }
+
+        private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

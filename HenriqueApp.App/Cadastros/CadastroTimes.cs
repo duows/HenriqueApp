@@ -17,5 +17,10 @@ namespace HenriqueApp.App.Cadastros
         {
             InitializeComponent();
         }
+
+        private void materialTextBoxEdit1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

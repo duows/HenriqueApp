@@ -1,5 +1,4 @@
-﻿using HenriqueApp.App.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HenriqueApp.App.Cadastros
 {
-    public partial class CadastroTempCamp : CadastroBase
+    public partial class CadastroCampeonatoTemporadaTempCamp : Form
     {
-        public CadastroTempCamp()
+        public CadastroCampeonatoTemporadaTempCamp()
         {
             InitializeComponent();
         }
