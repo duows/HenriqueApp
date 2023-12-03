@@ -85,7 +85,6 @@ namespace HenriqueApp.Teste
             timeCampeonato2.Golpro = 0;
             timeCampeonato2.Golcon = 30;
 
-            partida.Data = DateTime.Today;
             partida.TempCampId = tempCamp;
             partida.Gol1 = 10;
             partida.Gol2 = 0;
@@ -94,7 +93,6 @@ namespace HenriqueApp.Teste
 
 
             Console.WriteLine(JsonSerializer.Serialize(partida));
-            Assert.AreEqual(partida.Data, DateTime.Today);
             Assert.AreEqual(partida.TempCampId, tempCamp);
             Assert.AreEqual(partida.Gol1, 10);
             Assert.AreEqual(partida.Gol2, 0);

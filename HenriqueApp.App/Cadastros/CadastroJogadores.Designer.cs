@@ -33,6 +33,7 @@
             txtIdade = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             rbtJogador = new ReaLTaiizor.Controls.MaterialRadioButton();
             cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
+            txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             SuspendLayout();
@@ -43,6 +44,7 @@
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboTime);
             tabPageCadastro.Controls.Add(rbtJogador);
             tabPageCadastro.Controls.Add(txtIdade);
@@ -54,6 +56,7 @@
             tabPageCadastro.Controls.SetChildIndex(txtIdade, 0);
             tabPageCadastro.Controls.SetChildIndex(rbtJogador, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // txtNome
             // 
@@ -79,7 +82,7 @@
             txtNome.SelectionLength = 0;
             txtNome.SelectionStart = 0;
             txtNome.ShortcutsEnabled = true;
-            txtNome.Size = new Size(776, 48);
+            txtNome.Size = new Size(709, 48);
             txtNome.TabIndex = 0;
             txtNome.TabStop = false;
             txtNome.TextAlign = HorizontalAlignment.Left;
@@ -176,6 +179,37 @@
             cboTime.StartIndex = 0;
             cboTime.TabIndex = 11;
             // 
+            // txtId
+            // 
+            txtId.AnimateReadOnly = false;
+            txtId.AutoCompleteMode = AutoCompleteMode.None;
+            txtId.AutoCompleteSource = AutoCompleteSource.None;
+            txtId.BackgroundImageLayout = ImageLayout.None;
+            txtId.CharacterCasing = CharacterCasing.Normal;
+            txtId.Depth = 0;
+            txtId.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.HideSelection = true;
+            txtId.Hint = "ID";
+            txtId.LeadingIcon = null;
+            txtId.Location = new Point(718, 6);
+            txtId.MaxLength = 32767;
+            txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtId.Name = "txtId";
+            txtId.PasswordChar = '\0';
+            txtId.PrefixSuffixText = null;
+            txtId.ReadOnly = true;
+            txtId.RightToLeft = RightToLeft.No;
+            txtId.SelectedText = "";
+            txtId.SelectionLength = 0;
+            txtId.SelectionStart = 0;
+            txtId.ShortcutsEnabled = true;
+            txtId.Size = new Size(58, 48);
+            txtId.TabIndex = 12;
+            txtId.TabStop = false;
+            txtId.TextAlign = HorizontalAlignment.Left;
+            txtId.TrailingIcon = null;
+            txtId.UseSystemPasswordChar = false;
+            // 
             // CadastroJogadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -197,5 +231,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIdade;
         private ReaLTaiizor.Controls.MaterialRadioButton rbtJogador;
         private ReaLTaiizor.Controls.MaterialComboBox cboTime;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }

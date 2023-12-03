@@ -1,4 +1,4 @@
--- MySQL Workbench Forward Engineering
+/*-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,6 @@ USE `HenriqueApp` ;
 CREATE TABLE IF NOT EXISTS `HenriqueApp`.`Campeonato` (
   `idCampeonato` INT NOT NULL,
   `Nome` VARCHAR(50) NULL,
-  `Campeonatocol` VARCHAR(45) NULL,
   PRIMARY KEY (`idCampeonato`))
 ENGINE = InnoDB;
 
@@ -50,31 +49,6 @@ CREATE TABLE IF NOT EXISTS `HenriqueApp`.`Jogadores` (
   INDEX `fk_Jogadores_Times_idx` (`Times_idTimes` ASC) VISIBLE,
   CONSTRAINT `fk_Jogadores_Times`
     FOREIGN KEY (`Times_idTimes`)
-    REFERENCES `HenriqueApp`.`Times` (`idTimes`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `HenriqueApp`.`Partida`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `HenriqueApp`.`Partida` (
-  `idPartida` INT NOT NULL,
-  `Gol1` INT NULL,
-  `Gol2` INT NULL,
-  `Times_idTimes` INT NOT NULL,
-  `Times_idTimes1` INT NOT NULL,
-  PRIMARY KEY (`idPartida`),
-  INDEX `fk_Partida_Times1_idx` (`Times_idTimes` ASC) VISIBLE,
-  INDEX `fk_Partida_Times2_idx` (`Times_idTimes1` ASC) VISIBLE,
-  CONSTRAINT `fk_Partida_Times1`
-    FOREIGN KEY (`Times_idTimes`)
-    REFERENCES `HenriqueApp`.`Times` (`idTimes`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Partida_Times2`
-    FOREIGN KEY (`Times_idTimes1`)
     REFERENCES `HenriqueApp`.`Times` (`idTimes`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -117,6 +91,38 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `HenriqueApp`.`Partida`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `HenriqueApp`.`Partida` (
+  `idPartida` INT NOT NULL,
+  `Gol1` INT NULL,
+  `Gol2` INT NULL,
+  `Times_idTimes` INT NOT NULL,
+  `Times_idTimes1` INT NOT NULL,
+  `TempCamp_idTempCamp` INT NOT NULL,
+  PRIMARY KEY (`idPartida`),
+  INDEX `fk_Partida_Times1_idx` (`Times_idTimes` ASC) VISIBLE,
+  INDEX `fk_Partida_Times2_idx` (`Times_idTimes1` ASC) VISIBLE,
+  INDEX `fk_Partida_TempCamp1_idx` (`TempCamp_idTempCamp` ASC) VISIBLE,
+  CONSTRAINT `fk_Partida_Times1`
+    FOREIGN KEY (`Times_idTimes`)
+    REFERENCES `HenriqueApp`.`Times` (`idTimes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Partida_Times2`
+    FOREIGN KEY (`Times_idTimes1`)
+    REFERENCES `HenriqueApp`.`Times` (`idTimes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Partida_TempCamp1`
+    FOREIGN KEY (`TempCamp_idTempCamp`)
+    REFERENCES `HenriqueApp`.`TempCamp` (`idTempCamp`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `HenriqueApp`.`TimeCampeonato`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `HenriqueApp`.`TimeCampeonato` (
@@ -146,3 +152,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+*/

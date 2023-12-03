@@ -1,1 +1,1 @@
-﻿Server=localhost;Port=3306;Database=campeonatos;Uid=root;Pwd=
+﻿Server=127.0.0.1;Port=3306;Database=HenriqueApp;Uid=root;Pwd=1234

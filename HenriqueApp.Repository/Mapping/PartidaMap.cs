@@ -17,9 +17,6 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Data)
-                .HasDefaultValue(DateTime.Now);
-
             builder.Property(prop => prop.Gol1);
 
             builder.Property(prop => prop.Gol2);

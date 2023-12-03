@@ -29,7 +29,7 @@ namespace HenriqueApp.App.Infra
             Services = new ServiceCollection();
             Services.AddDbContext<MySqlContext>(options =>
             {
-                var strCon = File.ReadAllText("Config/DatabaseSettings.txt");
+                var strCon = File.ReadAllText("C:\\Users\\Henrique\\Desktop\\Nova pasta\\HenriqueApp\\HenriqueApp.App\\Config\\DatabaseSetting.txt");
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.EnableSensitiveDataLogging();
 

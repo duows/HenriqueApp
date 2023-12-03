@@ -133,7 +133,7 @@
             cboTimeUm.DropDownHeight = 174;
             cboTimeUm.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTimeUm.DropDownWidth = 121;
-            cboTimeUm.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTimeUm.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboTimeUm.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboTimeUm.FormattingEnabled = true;
             cboTimeUm.Hint = "Mandante";
@@ -156,7 +156,7 @@
             cboTimeDois.DropDownHeight = 174;
             cboTimeDois.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTimeDois.DropDownWidth = 121;
-            cboTimeDois.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTimeDois.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboTimeDois.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboTimeDois.FormattingEnabled = true;
             cboTimeDois.Hint = "Visitante";
@@ -179,7 +179,7 @@
             cboCampeonato.DropDownHeight = 174;
             cboCampeonato.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCampeonato.DropDownWidth = 121;
-            cboCampeonato.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboCampeonato.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboCampeonato.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboCampeonato.FormattingEnabled = true;
             cboCampeonato.Hint = "Campeonatos";

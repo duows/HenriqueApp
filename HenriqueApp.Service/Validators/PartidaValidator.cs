@@ -12,9 +12,6 @@ namespace HenriqueApp.Service.Validators
     {
         public PartidaValidator()
         {
-            RuleFor(c => c.Data)
-                .NotEmpty().WithMessage("Por favor informe a data.")
-                .NotNull().WithMessage("Por favor informe a data.");
             RuleFor(c => c.Gol1)
                 .NotEmpty().WithMessage("Por favor informe os gol do time mandante.")
                 .NotNull().WithMessage("Por favor informe os gol do time mandante.");
