@@ -61,11 +61,8 @@ namespace HenriqueApp.App.Infra
             Services.AddScoped<IBaseService<Times>, BaseService<Times>>();
 
             // Formulários
-            Services.AddTransient<CadastroCampeonato, CadastroCampeonato>();
             Services.AddTransient<CadastroJogadores, CadastroJogadores>();
             Services.AddTransient<CadastroPartida, CadastroPartida>();
-            Services.AddTransient<CadastroTempCamp, CadastroTempCamp>();
-            Services.AddTransient<CadastroTemporada, CadastroTemporada>();
             Services.AddTransient<CadastroTimeCampeonato, CadastroTimeCampeonato>();
             Services.AddTransient<CadastroTimes, CadastroTimes>();
             

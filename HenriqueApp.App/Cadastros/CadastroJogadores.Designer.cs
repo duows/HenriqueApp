@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtNomeTime = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             rbtCapitao = new ReaLTaiizor.Controls.MaterialRadioButton();
             txtIdade = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtNumCamisa = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialRadioButton1 = new ReaLTaiizor.Controls.MaterialRadioButton();
+            cboTimes = new ReaLTaiizor.Controls.MaterialComboBox();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             SuspendLayout();
@@ -44,19 +44,19 @@
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(cboTimes);
             tabPageCadastro.Controls.Add(materialRadioButton1);
             tabPageCadastro.Controls.Add(txtNumCamisa);
             tabPageCadastro.Controls.Add(txtIdade);
             tabPageCadastro.Controls.Add(rbtCapitao);
-            tabPageCadastro.Controls.Add(txtNomeTime);
             tabPageCadastro.Controls.Add(txtNome);
             tabPageCadastro.Size = new Size(786, 348);
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtNomeTime, 0);
             tabPageCadastro.Controls.SetChildIndex(rbtCapitao, 0);
             tabPageCadastro.Controls.SetChildIndex(txtIdade, 0);
             tabPageCadastro.Controls.SetChildIndex(txtNumCamisa, 0);
             tabPageCadastro.Controls.SetChildIndex(materialRadioButton1, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboTimes, 0);
             // 
             // tabPageConsulta
             // 
@@ -92,37 +92,6 @@
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.TrailingIcon = null;
             txtNome.UseSystemPasswordChar = false;
-            // 
-            // txtNomeTime
-            // 
-            txtNomeTime.AnimateReadOnly = false;
-            txtNomeTime.AutoCompleteMode = AutoCompleteMode.None;
-            txtNomeTime.AutoCompleteSource = AutoCompleteSource.None;
-            txtNomeTime.BackgroundImageLayout = ImageLayout.None;
-            txtNomeTime.CharacterCasing = CharacterCasing.Normal;
-            txtNomeTime.Depth = 0;
-            txtNomeTime.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtNomeTime.HideSelection = true;
-            txtNomeTime.Hint = "Nome do time";
-            txtNomeTime.LeadingIcon = null;
-            txtNomeTime.Location = new Point(4, 218);
-            txtNomeTime.MaxLength = 32767;
-            txtNomeTime.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtNomeTime.Name = "txtNomeTime";
-            txtNomeTime.PasswordChar = '\0';
-            txtNomeTime.PrefixSuffixText = null;
-            txtNomeTime.ReadOnly = false;
-            txtNomeTime.RightToLeft = RightToLeft.No;
-            txtNomeTime.SelectedText = "";
-            txtNomeTime.SelectionLength = 0;
-            txtNomeTime.SelectionStart = 0;
-            txtNomeTime.ShortcutsEnabled = true;
-            txtNomeTime.Size = new Size(776, 48);
-            txtNomeTime.TabIndex = 5;
-            txtNomeTime.TabStop = false;
-            txtNomeTime.TextAlign = HorizontalAlignment.Left;
-            txtNomeTime.TrailingIcon = null;
-            txtNomeTime.UseSystemPasswordChar = false;
             // 
             // rbtCapitao
             // 
@@ -221,6 +190,29 @@
             materialRadioButton1.UseVisualStyleBackColor = true;
             materialRadioButton1.CheckedChanged += materialRadioButton1_CheckedChanged;
             // 
+            // cboTimes
+            // 
+            cboTimes.AutoResize = false;
+            cboTimes.BackColor = Color.FromArgb(255, 255, 255);
+            cboTimes.Depth = 0;
+            cboTimes.DrawMode = DrawMode.OwnerDrawVariable;
+            cboTimes.DropDownHeight = 174;
+            cboTimes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTimes.DropDownWidth = 121;
+            cboTimes.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTimes.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboTimes.FormattingEnabled = true;
+            cboTimes.Hint = "Time";
+            cboTimes.IntegralHeight = false;
+            cboTimes.ItemHeight = 43;
+            cboTimes.Location = new Point(6, 223);
+            cboTimes.MaxDropDownItems = 4;
+            cboTimes.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboTimes.Name = "cboTimes";
+            cboTimes.Size = new Size(773, 49);
+            cboTimes.StartIndex = 0;
+            cboTimes.TabIndex = 11;
+            // 
             // CadastroJogadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -238,10 +230,10 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialRadioButton rbtCapitao;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNomeTime;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNome;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNumCamisa;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIdade;
         private ReaLTaiizor.Controls.MaterialRadioButton materialRadioButton1;
+        private ReaLTaiizor.Controls.MaterialComboBox cboTimes;
     }
 }

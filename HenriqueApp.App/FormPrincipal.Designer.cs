@@ -28,12 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormPrincipal";
+            menuStrip1 = new MenuStrip();
+            cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            timeToolStripMenuItem = new ToolStripMenuItem();
+            jogadorToolStripMenuItem = new ToolStripMenuItem();
+            campeonatoToolStripMenuItem = new ToolStripMenuItem();
+            partidaToolStripMenuItem = new ToolStripMenuItem();
+            ajudaToolStripMenuItem = new ToolStripMenuItem();
+            sairToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, ajudaToolStripMenuItem, sairToolStripMenuItem });
+            menuStrip1.Location = new Point(3, 64);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(794, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // cadastrosToolStripMenuItem
+            // 
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { timeToolStripMenuItem, jogadorToolStripMenuItem, campeonatoToolStripMenuItem, partidaToolStripMenuItem });
+            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            cadastrosToolStripMenuItem.Size = new Size(71, 20);
+            cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // timeToolStripMenuItem
+            // 
+            timeToolStripMenuItem.Name = "timeToolStripMenuItem";
+            timeToolStripMenuItem.Size = new Size(143, 22);
+            timeToolStripMenuItem.Text = "Time";
+            timeToolStripMenuItem.Click += timeToolStripMenuItem_Click;
+            // 
+            // jogadorToolStripMenuItem
+            // 
+            jogadorToolStripMenuItem.Name = "jogadorToolStripMenuItem";
+            jogadorToolStripMenuItem.Size = new Size(143, 22);
+            jogadorToolStripMenuItem.Text = "Jogador";
+            jogadorToolStripMenuItem.Click += jogadorToolStripMenuItem_Click;
+            // 
+            // campeonatoToolStripMenuItem
+            // 
+            campeonatoToolStripMenuItem.Name = "campeonatoToolStripMenuItem";
+            campeonatoToolStripMenuItem.Size = new Size(143, 22);
+            campeonatoToolStripMenuItem.Text = "Campeonato";
+            campeonatoToolStripMenuItem.Click += campeonatoToolStripMenuItem_Click;
+            // 
+            // partidaToolStripMenuItem
+            // 
+            partidaToolStripMenuItem.Name = "partidaToolStripMenuItem";
+            partidaToolStripMenuItem.Size = new Size(143, 22);
+            partidaToolStripMenuItem.Text = "Partida";
+            partidaToolStripMenuItem.Click += partidaToolStripMenuItem_Click;
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            ajudaToolStripMenuItem.Size = new Size(50, 20);
+            ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // sairToolStripMenuItem
+            // 
+            sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            sairToolStripMenuItem.Size = new Size(38, 20);
+            sairToolStripMenuItem.Text = "Sair";
+            sairToolStripMenuItem.Click += sairToolStripMenuItem_Click_1;
+            // 
+            // FormPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            IsMdiContainer = true;
+            MainMenuStrip = menuStrip1;
+            Name = "FormPrincipal";
+            Text = "HENRIQUE APP";
+            WindowState = FormWindowState.Maximized;
+            FormClosing += FormPrincipal_FormClosing;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem cadastrosToolStripMenuItem;
+        private ToolStripMenuItem timeToolStripMenuItem;
+        private ToolStripMenuItem jogadorToolStripMenuItem;
+        private ToolStripMenuItem campeonatoToolStripMenuItem;
+        private ToolStripMenuItem partidaToolStripMenuItem;
+        private ToolStripMenuItem ajudaToolStripMenuItem;
+        private ToolStripMenuItem sairToolStripMenuItem;
     }
 }

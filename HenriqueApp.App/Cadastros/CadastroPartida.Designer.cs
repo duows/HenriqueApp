@@ -219,7 +219,6 @@
             // imgVersus
             // 
             imgVersus.BackgroundImageLayout = ImageLayout.Stretch;
-            imgVersus.Image = App.Properties.Resources.vs;
             imgVersus.Location = new Point(328, 6);
             imgVersus.Name = "imgVersus";
             imgVersus.Size = new Size(117, 102);
