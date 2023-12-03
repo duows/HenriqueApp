@@ -43,12 +43,9 @@
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(txtNome);
             tabPageCadastro.Size = new Size(786, 312);
+            tabPageCadastro.Click += tabPageCadastro_Click;
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
-            // 
-            // tabPageConsulta
-            // 
-            tabPageConsulta.Size = new Size(786, 312);
             // 
             // txtNome
             // 
@@ -58,7 +55,7 @@
             txtNome.BackgroundImageLayout = ImageLayout.None;
             txtNome.CharacterCasing = CharacterCasing.Normal;
             txtNome.Depth = 0;
-            txtNome.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNome.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtNome.HideSelection = true;
             txtNome.Hint = "Nome";
             txtNome.LeadingIcon = null;
@@ -80,7 +77,6 @@
             txtNome.TextAlign = HorizontalAlignment.Left;
             txtNome.TrailingIcon = null;
             txtNome.UseSystemPasswordChar = false;
-            txtNome.Click += materialTextBoxEdit1_Click;
             // 
             // txtId
             // 
@@ -90,7 +86,7 @@
             txtId.BackgroundImageLayout = ImageLayout.None;
             txtId.CharacterCasing = CharacterCasing.Normal;
             txtId.Depth = 0;
-            txtId.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtId.HideSelection = true;
             txtId.Hint = "Id";
             txtId.LeadingIcon = null;

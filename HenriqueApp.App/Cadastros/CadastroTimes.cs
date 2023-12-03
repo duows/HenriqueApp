@@ -25,7 +25,7 @@ namespace HenriqueApp.App.Cadastros
             _timeService = timeService;
             InitializeComponent();
         }
-
+        
         private void PreencheObjeto(Times time)
         {
             time.Nome = txtNome.Text;
@@ -85,7 +85,7 @@ namespace HenriqueApp.App.Cadastros
             txtNome.Text = linha?.Cells["Nome"].Value.ToString();
         }
 
-        private void materialTextBoxEdit1_Click(object sender, EventArgs e)
+        private void tabPageCadastro_Click(object sender, EventArgs e)
         {
 
         }

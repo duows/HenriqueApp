@@ -1,1 +1,1 @@
-﻿Server=127.0.0.1;Port=3306;Database=HenriqueApp;Uid=root;Pwd=1234
+﻿Server=localhost;Port=3307;Database=HenriqueApp;Uid=root;Pwd=1234
