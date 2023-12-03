@@ -31,9 +31,8 @@
             txtNome = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             rbtCapitao = new ReaLTaiizor.Controls.MaterialRadioButton();
             txtIdade = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtNumCamisa = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            materialRadioButton1 = new ReaLTaiizor.Controls.MaterialRadioButton();
-            cboTimes = new ReaLTaiizor.Controls.MaterialComboBox();
+            rbtJogador = new ReaLTaiizor.Controls.MaterialRadioButton();
+            cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             SuspendLayout();
@@ -44,9 +43,8 @@
             // 
             // tabPageCadastro
             // 
-            tabPageCadastro.Controls.Add(cboTimes);
-            tabPageCadastro.Controls.Add(materialRadioButton1);
-            tabPageCadastro.Controls.Add(txtNumCamisa);
+            tabPageCadastro.Controls.Add(cboTime);
+            tabPageCadastro.Controls.Add(rbtJogador);
             tabPageCadastro.Controls.Add(txtIdade);
             tabPageCadastro.Controls.Add(rbtCapitao);
             tabPageCadastro.Controls.Add(txtNome);
@@ -54,13 +52,8 @@
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(rbtCapitao, 0);
             tabPageCadastro.Controls.SetChildIndex(txtIdade, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtNumCamisa, 0);
-            tabPageCadastro.Controls.SetChildIndex(materialRadioButton1, 0);
-            tabPageCadastro.Controls.SetChildIndex(cboTimes, 0);
-            // 
-            // tabPageConsulta
-            // 
-            tabPageConsulta.Size = new Size(786, 348);
+            tabPageCadastro.Controls.SetChildIndex(rbtJogador, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
             // 
             // txtNome
             // 
@@ -70,7 +63,7 @@
             txtNome.BackgroundImageLayout = ImageLayout.None;
             txtNome.CharacterCasing = CharacterCasing.Normal;
             txtNome.Depth = 0;
-            txtNome.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtNome.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtNome.HideSelection = true;
             txtNome.Hint = "Nome";
             txtNome.LeadingIcon = null;
@@ -97,7 +90,7 @@
             // 
             rbtCapitao.AutoSize = true;
             rbtCapitao.Depth = 0;
-            rbtCapitao.Location = new Point(6, 172);
+            rbtCapitao.Location = new Point(6, 111);
             rbtCapitao.Margin = new Padding(0);
             rbtCapitao.MouseLocation = new Point(-1, -1);
             rbtCapitao.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
@@ -109,6 +102,7 @@
             rbtCapitao.Text = "Capitão";
             rbtCapitao.UseAccentColor = false;
             rbtCapitao.UseVisualStyleBackColor = true;
+            rbtCapitao.CheckedChanged += materialRadioButton_CheckedChanged;
             // 
             // txtIdade
             // 
@@ -118,7 +112,7 @@
             txtIdade.BackgroundImageLayout = ImageLayout.None;
             txtIdade.CharacterCasing = CharacterCasing.Normal;
             txtIdade.Depth = 0;
-            txtIdade.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtIdade.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtIdade.HideSelection = true;
             txtIdade.Hint = "Idade";
             txtIdade.LeadingIcon = null;
@@ -141,77 +135,46 @@
             txtIdade.TrailingIcon = null;
             txtIdade.UseSystemPasswordChar = false;
             // 
-            // txtNumCamisa
+            // rbtJogador
             // 
-            txtNumCamisa.AnimateReadOnly = false;
-            txtNumCamisa.AutoCompleteMode = AutoCompleteMode.None;
-            txtNumCamisa.AutoCompleteSource = AutoCompleteSource.None;
-            txtNumCamisa.BackgroundImageLayout = ImageLayout.None;
-            txtNumCamisa.CharacterCasing = CharacterCasing.Normal;
-            txtNumCamisa.Depth = 0;
-            txtNumCamisa.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtNumCamisa.HideSelection = true;
-            txtNumCamisa.Hint = "Nº da camisa";
-            txtNumCamisa.LeadingIcon = null;
-            txtNumCamisa.Location = new Point(6, 114);
-            txtNumCamisa.MaxLength = 32767;
-            txtNumCamisa.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtNumCamisa.Name = "txtNumCamisa";
-            txtNumCamisa.PasswordChar = '\0';
-            txtNumCamisa.PrefixSuffixText = null;
-            txtNumCamisa.ReadOnly = false;
-            txtNumCamisa.RightToLeft = RightToLeft.No;
-            txtNumCamisa.SelectedText = "";
-            txtNumCamisa.SelectionLength = 0;
-            txtNumCamisa.SelectionStart = 0;
-            txtNumCamisa.ShortcutsEnabled = true;
-            txtNumCamisa.Size = new Size(773, 48);
-            txtNumCamisa.TabIndex = 2;
-            txtNumCamisa.TabStop = false;
-            txtNumCamisa.TextAlign = HorizontalAlignment.Left;
-            txtNumCamisa.TrailingIcon = null;
-            txtNumCamisa.UseSystemPasswordChar = false;
+            rbtJogador.AutoSize = true;
+            rbtJogador.Depth = 0;
+            rbtJogador.Location = new Point(145, 111);
+            rbtJogador.Margin = new Padding(0);
+            rbtJogador.MouseLocation = new Point(-1, -1);
+            rbtJogador.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            rbtJogador.Name = "rbtJogador";
+            rbtJogador.Ripple = true;
+            rbtJogador.Size = new Size(94, 37);
+            rbtJogador.TabIndex = 4;
+            rbtJogador.TabStop = true;
+            rbtJogador.Text = "Jogador";
+            rbtJogador.UseAccentColor = false;
+            rbtJogador.UseVisualStyleBackColor = true;
+            rbtJogador.CheckedChanged += materialRadioButton_CheckedChanged;
             // 
-            // materialRadioButton1
+            // cboTime
             // 
-            materialRadioButton1.AutoSize = true;
-            materialRadioButton1.Depth = 0;
-            materialRadioButton1.Location = new Point(151, 172);
-            materialRadioButton1.Margin = new Padding(0);
-            materialRadioButton1.MouseLocation = new Point(-1, -1);
-            materialRadioButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialRadioButton1.Name = "materialRadioButton1";
-            materialRadioButton1.Ripple = true;
-            materialRadioButton1.Size = new Size(94, 37);
-            materialRadioButton1.TabIndex = 4;
-            materialRadioButton1.TabStop = true;
-            materialRadioButton1.Text = "Jogador";
-            materialRadioButton1.UseAccentColor = false;
-            materialRadioButton1.UseVisualStyleBackColor = true;
-            materialRadioButton1.CheckedChanged += materialRadioButton1_CheckedChanged;
-            // 
-            // cboTimes
-            // 
-            cboTimes.AutoResize = false;
-            cboTimes.BackColor = Color.FromArgb(255, 255, 255);
-            cboTimes.Depth = 0;
-            cboTimes.DrawMode = DrawMode.OwnerDrawVariable;
-            cboTimes.DropDownHeight = 174;
-            cboTimes.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboTimes.DropDownWidth = 121;
-            cboTimes.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cboTimes.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cboTimes.FormattingEnabled = true;
-            cboTimes.Hint = "Time";
-            cboTimes.IntegralHeight = false;
-            cboTimes.ItemHeight = 43;
-            cboTimes.Location = new Point(6, 223);
-            cboTimes.MaxDropDownItems = 4;
-            cboTimes.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cboTimes.Name = "cboTimes";
-            cboTimes.Size = new Size(773, 49);
-            cboTimes.StartIndex = 0;
-            cboTimes.TabIndex = 11;
+            cboTime.AutoResize = false;
+            cboTime.BackColor = Color.FromArgb(255, 255, 255);
+            cboTime.Depth = 0;
+            cboTime.DrawMode = DrawMode.OwnerDrawVariable;
+            cboTime.DropDownHeight = 174;
+            cboTime.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTime.DropDownWidth = 121;
+            cboTime.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTime.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboTime.FormattingEnabled = true;
+            cboTime.Hint = "Time";
+            cboTime.IntegralHeight = false;
+            cboTime.ItemHeight = 43;
+            cboTime.Location = new Point(3, 151);
+            cboTime.MaxDropDownItems = 4;
+            cboTime.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboTime.Name = "cboTime";
+            cboTime.Size = new Size(773, 49);
+            cboTime.StartIndex = 0;
+            cboTime.TabIndex = 11;
             // 
             // CadastroJogadores
             // 
@@ -231,9 +194,8 @@
 
         private ReaLTaiizor.Controls.MaterialRadioButton rbtCapitao;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNome;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtNumCamisa;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtIdade;
-        private ReaLTaiizor.Controls.MaterialRadioButton materialRadioButton1;
-        private ReaLTaiizor.Controls.MaterialComboBox cboTimes;
+        private ReaLTaiizor.Controls.MaterialRadioButton rbtJogador;
+        private ReaLTaiizor.Controls.MaterialComboBox cboTime;
     }
 }

@@ -14,7 +14,7 @@ namespace HenriqueApp.Domain.Entities
 
         }
 
-        public Jogadores(int id, string? nome, int? idade, int? gols, int? assist, Times? time, int? capitao) : base(id)
+        public Jogadores(int id, string? nome, int? idade, int? gols, int? assist, int? camisa, Times? time, int? capitao) : base(id)
         {
             Nome = nome;
             Idade = idade;

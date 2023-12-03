@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
+            panel2 = new Panel();
             btnNovoCamp = new ReaLTaiizor.Controls.MaterialButton();
             btnNovaTemp = new ReaLTaiizor.Controls.MaterialButton();
+            cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
-            panel2 = new Panel();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             panel2.SuspendLayout();
@@ -49,6 +49,56 @@
             tabPageCadastro.Click += tabPageCadastro_Click;
             tabPageCadastro.Controls.SetChildIndex(panel2, 0);
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(cboTemporada);
+            panel2.Controls.Add(cboCampeonato);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(780, 288);
+            panel2.TabIndex = 11;
+            // 
+            // btnNovoCamp
+            // 
+            btnNovoCamp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnNovoCamp.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnNovoCamp.Depth = 0;
+            btnNovoCamp.HighEmphasis = true;
+            btnNovoCamp.Icon = null;
+            btnNovoCamp.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnNovoCamp.Location = new Point(4, 6);
+            btnNovoCamp.Margin = new Padding(4, 6, 4, 6);
+            btnNovoCamp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnNovoCamp.Name = "btnNovoCamp";
+            btnNovoCamp.NoAccentTextColor = Color.Empty;
+            btnNovoCamp.Size = new Size(174, 36);
+            btnNovoCamp.TabIndex = 12;
+            btnNovoCamp.Text = "&Novo campeonato";
+            btnNovoCamp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnNovoCamp.UseAccentColor = false;
+            btnNovoCamp.UseVisualStyleBackColor = true;
+            // 
+            // btnNovaTemp
+            // 
+            btnNovaTemp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnNovaTemp.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnNovaTemp.Depth = 0;
+            btnNovaTemp.HighEmphasis = true;
+            btnNovaTemp.Icon = null;
+            btnNovaTemp.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnNovaTemp.Location = new Point(186, 6);
+            btnNovaTemp.Margin = new Padding(4, 6, 4, 6);
+            btnNovaTemp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnNovaTemp.Name = "btnNovaTemp";
+            btnNovaTemp.NoAccentTextColor = Color.Empty;
+            btnNovaTemp.Size = new Size(162, 36);
+            btnNovaTemp.TabIndex = 13;
+            btnNovaTemp.Text = "&Nova temporada";
+            btnNovaTemp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnNovaTemp.UseAccentColor = false;
+            btnNovaTemp.UseVisualStyleBackColor = true;
+            // 
             // cboCampeonato
             // 
             cboCampeonato.AutoResize = false;
@@ -64,53 +114,13 @@
             cboCampeonato.Hint = "Campeonatos";
             cboCampeonato.IntegralHeight = false;
             cboCampeonato.ItemHeight = 43;
-            cboCampeonato.Location = new Point(3, 22);
+            cboCampeonato.Location = new Point(4, 3);
             cboCampeonato.MaxDropDownItems = 4;
             cboCampeonato.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboCampeonato.Name = "cboCampeonato";
-            cboCampeonato.Size = new Size(574, 49);
+            cboCampeonato.Size = new Size(380, 49);
             cboCampeonato.StartIndex = 0;
             cboCampeonato.TabIndex = 0;
-            // 
-            // btnNovoCamp
-            // 
-            btnNovoCamp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnNovoCamp.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnNovoCamp.Depth = 0;
-            btnNovoCamp.HighEmphasis = true;
-            btnNovoCamp.Icon = null;
-            btnNovoCamp.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnNovoCamp.Location = new Point(593, 27);
-            btnNovoCamp.Margin = new Padding(4, 6, 4, 6);
-            btnNovoCamp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnNovoCamp.Name = "btnNovoCamp";
-            btnNovoCamp.NoAccentTextColor = Color.Empty;
-            btnNovoCamp.Size = new Size(174, 36);
-            btnNovoCamp.TabIndex = 1;
-            btnNovoCamp.Text = "&Novo campeonato";
-            btnNovoCamp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnNovoCamp.UseAccentColor = false;
-            btnNovoCamp.UseVisualStyleBackColor = true;
-            // 
-            // btnNovaTemp
-            // 
-            btnNovaTemp.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnNovaTemp.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnNovaTemp.Depth = 0;
-            btnNovaTemp.HighEmphasis = true;
-            btnNovaTemp.Icon = null;
-            btnNovaTemp.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnNovaTemp.Location = new Point(598, 83);
-            btnNovaTemp.Margin = new Padding(4, 6, 4, 6);
-            btnNovaTemp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnNovaTemp.Name = "btnNovaTemp";
-            btnNovaTemp.NoAccentTextColor = Color.Empty;
-            btnNovaTemp.Size = new Size(162, 36);
-            btnNovaTemp.TabIndex = 3;
-            btnNovaTemp.Text = "&Nova temporada";
-            btnNovaTemp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnNovaTemp.UseAccentColor = false;
-            btnNovaTemp.UseVisualStyleBackColor = true;
             // 
             // cboTemporada
             // 
@@ -127,25 +137,13 @@
             cboTemporada.Hint = "Temporadas";
             cboTemporada.IntegralHeight = false;
             cboTemporada.ItemHeight = 43;
-            cboTemporada.Location = new Point(3, 77);
+            cboTemporada.Location = new Point(396, 3);
             cboTemporada.MaxDropDownItems = 4;
             cboTemporada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cboTemporada.Name = "cboTemporada";
-            cboTemporada.Size = new Size(574, 49);
+            cboTemporada.Size = new Size(380, 49);
             cboTemporada.StartIndex = 0;
-            cboTemporada.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(cboCampeonato);
-            panel2.Controls.Add(btnNovaTemp);
-            panel2.Controls.Add(btnNovoCamp);
-            panel2.Controls.Add(cboTemporada);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(780, 288);
-            panel2.TabIndex = 11;
+            cboTemporada.TabIndex = 1;
             // 
             // CadastroCampeonatoTemporadaTempCamp
             // 
@@ -158,16 +156,14 @@
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.MaterialButton btnNovoCamp;
+        private Panel panel2;
         private ReaLTaiizor.Controls.MaterialComboBox cboCampeonato;
+        private ReaLTaiizor.Controls.MaterialButton btnNovoCamp;
         private ReaLTaiizor.Controls.MaterialButton btnNovaTemp;
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
-        private Panel panel2;
     }
 }
