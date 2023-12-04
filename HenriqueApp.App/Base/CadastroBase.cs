@@ -131,7 +131,7 @@ namespace HenriqueApp.App.Base
             }
             else
             {
-                MessageBox.Show(@"Selecione algum registro!", @"IFSP Store", MessageBoxButtons.OK,
+                MessageBox.Show(@"Selecione algum registro!", @"Henrique App", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }

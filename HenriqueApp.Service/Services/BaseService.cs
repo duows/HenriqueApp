@@ -76,7 +76,7 @@ namespace HenriqueApp.Service.Services
 
             Validate(entity, Activator.CreateInstance<TValidator>());
 
-            //_baseRepository.ClearChangeTracker();
+            _baseRepository.ClearChangeTracker();
             _baseRepository.Update(entity);
 
             var outputModel = _mapper.Map<TOutputModel>(entity);

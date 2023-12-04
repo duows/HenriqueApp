@@ -18,19 +18,38 @@ namespace HenriqueApp.App.Cadastros
     {
 
         private readonly IBaseService<Jogadores> _jogadorService;
+        private readonly IBaseService<Times> _timeService;
 
         private List<Jogadores>? jogadores;
 
-        public CadastroJogadores(IBaseService<Jogadores> jogadorService)
+        public CadastroJogadores(IBaseService<Jogadores> jogadorService, IBaseService<Times> timeService)
         {
             _jogadorService = jogadorService;
+            _timeService = timeService;
             InitializeComponent();
+            CarregarCombo();
+        }
+        private void CarregarCombo()
+        {
+            cboTime.ValueMember = "Id";
+            cboTime.DisplayMember = "Nome";
+            cboTime.DataSource = _timeService.Get<Times>().ToList();
         }
         private void PreencheObjeto(Jogadores jogador)
         {
             jogador.Nome = txtNome.Text;
             jogador.Idade = Convert.ToInt32(txtIdade.Text);
+            if (rbtCapitao.Checked)
+            {
+                jogador.Capitao = 1;
+            }
+            else
+            {
+                jogador.Capitao = 0;
+            }
             jogador.Time = (Times)cboTime.SelectedItem;
+            jogador.Gols = 0;
+            jogador.Assist = 0;
         }
 
         protected override void Salvar()
