@@ -10,11 +10,14 @@ namespace HenriqueApp.App.Models
     public class TempCampModel
     {
         public string? Premio { get; set; }
-        //public Temporada? Temp { get; set; }
+
+        public Temporada? Temp { get; set; }
         public int IdTemporada { get; set; }
         public int AnoTemporada { get; set; }
-        //public Campeonato? Camp { get; set; }
+
+        public Campeonato? Camp { get; set; }
         public int IdCampeonato { get; set; }
+        public string? NomeCampeonato { get; set; }
         public string? Campeao { get; set; }
     }
 }

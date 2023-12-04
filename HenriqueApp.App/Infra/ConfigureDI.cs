@@ -84,7 +84,8 @@ namespace HenriqueApp.App.Infra
                 config.CreateMap<TempCamp, TempCampModel>()
                     .ForMember(d => d.IdTemporada, d => d.MapFrom(x => $"{x.Temp!.Id}"))
                     .ForMember(d => d.AnoTemporada, d => d.MapFrom(x => $"{x.Temp!.Ano}"))
-                    .ForMember(d => d.IdCampeonato, d => d.MapFrom(x => $"{x.Camp!.Id}"));
+                    .ForMember(d => d.IdCampeonato, d => d.MapFrom(x => $"{x.Camp!.Id}"))
+                    .ForMember(d => d.NomeCampeonato, d => d.MapFrom(x => $"{x.Camp!.Nome}"));
                 config.CreateMap<Temporada, TemporadaModel>();
                 config.CreateMap<TimeCampeonato, TimeCampeonatoModel>()
                     .ForMember(d => d.IdTime, d => d.MapFrom(x => x.Time!.Id))

@@ -1,4 +1,6 @@
-﻿namespace HenriqueApp.App.Cadastros
+﻿using System.Reflection;
+
+namespace HenriqueApp.App.Cadastros
 {
     partial class CadastroPartida
     {
@@ -29,12 +31,13 @@
         private void InitializeComponent()
         {
             txtGolUm = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            txtGol2 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtGolDois = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboTimeUm = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTimeDois = new ReaLTaiizor.Controls.MaterialComboBox();
             cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
             imgVersus = new PictureBox();
+            txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgVersus).BeginInit();
@@ -42,25 +45,27 @@
             // 
             // materialTabControl
             // 
-            materialTabControl.Size = new Size(794, 341);
+            materialTabControl.Size = new Size(794, 361);
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(imgVersus);
             tabPageCadastro.Controls.Add(cboTemporada);
             tabPageCadastro.Controls.Add(cboCampeonato);
             tabPageCadastro.Controls.Add(cboTimeDois);
             tabPageCadastro.Controls.Add(cboTimeUm);
-            tabPageCadastro.Controls.Add(txtGol2);
+            tabPageCadastro.Controls.Add(txtGolDois);
             tabPageCadastro.Controls.Add(txtGolUm);
-            tabPageCadastro.Size = new Size(786, 306);
+            tabPageCadastro.Size = new Size(786, 326);
             tabPageCadastro.Controls.SetChildIndex(txtGolUm, 0);
-            tabPageCadastro.Controls.SetChildIndex(txtGol2, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtGolDois, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTimeUm, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTimeDois, 0);
             tabPageCadastro.Controls.SetChildIndex(cboCampeonato, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTemporada, 0);
             tabPageCadastro.Controls.SetChildIndex(imgVersus, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // txtGolUm
             // 
@@ -93,36 +98,36 @@
             txtGolUm.TrailingIcon = null;
             txtGolUm.UseSystemPasswordChar = false;
             // 
-            // txtGol2
+            // txtGolDois
             // 
-            txtGol2.AnimateReadOnly = false;
-            txtGol2.AutoCompleteMode = AutoCompleteMode.None;
-            txtGol2.AutoCompleteSource = AutoCompleteSource.None;
-            txtGol2.BackgroundImageLayout = ImageLayout.None;
-            txtGol2.CharacterCasing = CharacterCasing.Normal;
-            txtGol2.Depth = 0;
-            txtGol2.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtGol2.HideSelection = true;
-            txtGol2.Hint = "Gols";
-            txtGol2.LeadingIcon = null;
-            txtGol2.Location = new Point(464, 60);
-            txtGol2.MaxLength = 32767;
-            txtGol2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtGol2.Name = "txtGol2";
-            txtGol2.PasswordChar = '\0';
-            txtGol2.PrefixSuffixText = null;
-            txtGol2.ReadOnly = false;
-            txtGol2.RightToLeft = RightToLeft.No;
-            txtGol2.SelectedText = "";
-            txtGol2.SelectionLength = 0;
-            txtGol2.SelectionStart = 0;
-            txtGol2.ShortcutsEnabled = true;
-            txtGol2.Size = new Size(315, 48);
-            txtGol2.TabIndex = 14;
-            txtGol2.TabStop = false;
-            txtGol2.TextAlign = HorizontalAlignment.Left;
-            txtGol2.TrailingIcon = null;
-            txtGol2.UseSystemPasswordChar = false;
+            txtGolDois.AnimateReadOnly = false;
+            txtGolDois.AutoCompleteMode = AutoCompleteMode.None;
+            txtGolDois.AutoCompleteSource = AutoCompleteSource.None;
+            txtGolDois.BackgroundImageLayout = ImageLayout.None;
+            txtGolDois.CharacterCasing = CharacterCasing.Normal;
+            txtGolDois.Depth = 0;
+            txtGolDois.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtGolDois.HideSelection = true;
+            txtGolDois.Hint = "Gols";
+            txtGolDois.LeadingIcon = null;
+            txtGolDois.Location = new Point(464, 60);
+            txtGolDois.MaxLength = 32767;
+            txtGolDois.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtGolDois.Name = "txtGolDois";
+            txtGolDois.PasswordChar = '\0';
+            txtGolDois.PrefixSuffixText = null;
+            txtGolDois.ReadOnly = false;
+            txtGolDois.RightToLeft = RightToLeft.No;
+            txtGolDois.SelectedText = "";
+            txtGolDois.SelectionLength = 0;
+            txtGolDois.SelectionStart = 0;
+            txtGolDois.ShortcutsEnabled = true;
+            txtGolDois.Size = new Size(315, 48);
+            txtGolDois.TabIndex = 14;
+            txtGolDois.TabStop = false;
+            txtGolDois.TextAlign = HorizontalAlignment.Left;
+            txtGolDois.TrailingIcon = null;
+            txtGolDois.UseSystemPasswordChar = false;
             // 
             // cboTimeUm
             // 
@@ -146,6 +151,7 @@
             cboTimeUm.Size = new Size(305, 49);
             cboTimeUm.StartIndex = 0;
             cboTimeUm.TabIndex = 16;
+            cboTimeUm.SelectedIndexChanged += CboTimeUm_SelectedIndexChanged;
             // 
             // cboTimeDois
             // 
@@ -226,14 +232,46 @@
             imgVersus.TabIndex = 20;
             imgVersus.TabStop = false;
             // 
+            // txtId
+            // 
+            txtId.AnimateReadOnly = false;
+            txtId.AutoCompleteMode = AutoCompleteMode.None;
+            txtId.AutoCompleteSource = AutoCompleteSource.None;
+            txtId.BackgroundImageLayout = ImageLayout.None;
+            txtId.CharacterCasing = CharacterCasing.Normal;
+            txtId.Depth = 0;
+            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.HideSelection = true;
+            txtId.Hint = "ID";
+            txtId.LeadingIcon = null;
+            txtId.Location = new Point(6, 224);
+            txtId.MaxLength = 32767;
+            txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtId.Name = "txtId";
+            txtId.PasswordChar = '\0';
+            txtId.PrefixSuffixText = null;
+            txtId.ReadOnly = false;
+            txtId.RightToLeft = RightToLeft.No;
+            txtId.SelectedText = "";
+            txtId.SelectionLength = 0;
+            txtId.SelectionStart = 0;
+            txtId.ShortcutsEnabled = true;
+            txtId.Size = new Size(61, 48);
+            txtId.TabIndex = 21;
+            txtId.TabStop = false;
+            txtId.TextAlign = HorizontalAlignment.Left;
+            txtId.TrailingIcon = null;
+            txtId.UseSystemPasswordChar = false;
+            // 
             // CadastroPartida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 408);
+            ClientSize = new Size(800, 428);
             Location = new Point(0, 0);
             Name = "CadastroPartida";
             Text = "CadastroPartida";
+            Load += CadastroPartida_Load;
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgVersus).EndInit();
@@ -241,12 +279,13 @@
         }
 
         #endregion
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtGol2;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtGolDois;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtGolUm;
         private ReaLTaiizor.Controls.MaterialComboBox cboCampeonato;
         private ReaLTaiizor.Controls.MaterialComboBox cboTimeDois;
         private ReaLTaiizor.Controls.MaterialComboBox cboTimeUm;
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
         private PictureBox imgVersus;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }
