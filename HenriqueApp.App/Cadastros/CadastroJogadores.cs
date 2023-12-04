@@ -104,6 +104,7 @@ namespace HenriqueApp.App.Cadastros
         {
             txtId.Text = linha?.Cells["Id"].Value.ToString();
             txtNome.Text = linha?.Cells["Nome"].Value.ToString();
+            txtIdade.Text = linha?.Cells["Idade"].Value.ToString();
         }
 
         private void materialRadioButton_CheckedChanged(object sender, EventArgs e)

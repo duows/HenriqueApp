@@ -36,13 +36,13 @@
             // 
             // materialTabControl
             // 
-            materialTabControl.Size = new Size(794, 347);
+            materialTabControl.Size = new Size(794, 146);
             // 
             // tabPageCadastro
             // 
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(txtNome);
-            tabPageCadastro.Size = new Size(786, 312);
+            tabPageCadastro.Size = new Size(786, 111);
             tabPageCadastro.Click += tabPageCadastro_Click;
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
@@ -113,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 414);
+            ClientSize = new Size(800, 213);
             Location = new Point(0, 0);
             Name = "CadastroTimes";
             Text = "CadastroTimes";

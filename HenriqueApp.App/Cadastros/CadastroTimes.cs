@@ -25,7 +25,7 @@ namespace HenriqueApp.App.Cadastros
             _timeService = timeService;
             InitializeComponent();
         }
-        
+
         private void PreencheObjeto(Times time)
         {
             time.Nome = txtNome.Text;

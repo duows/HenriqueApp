@@ -40,7 +40,7 @@
             // 
             // materialTabControl
             // 
-            materialTabControl.Size = new Size(794, 383);
+            materialTabControl.Size = new Size(794, 297);
             // 
             // tabPageCadastro
             // 
@@ -50,7 +50,7 @@
             tabPageCadastro.Controls.Add(txtIdade);
             tabPageCadastro.Controls.Add(rbtCapitao);
             tabPageCadastro.Controls.Add(txtNome);
-            tabPageCadastro.Size = new Size(786, 348);
+            tabPageCadastro.Size = new Size(786, 262);
             tabPageCadastro.Controls.SetChildIndex(txtNome, 0);
             tabPageCadastro.Controls.SetChildIndex(rbtCapitao, 0);
             tabPageCadastro.Controls.SetChildIndex(txtIdade, 0);
@@ -187,7 +187,7 @@
             txtId.BackgroundImageLayout = ImageLayout.None;
             txtId.CharacterCasing = CharacterCasing.Normal;
             txtId.Depth = 0;
-            txtId.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtId.HideSelection = true;
             txtId.Hint = "ID";
             txtId.LeadingIcon = null;
@@ -214,7 +214,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 364);
             Location = new Point(0, 0);
             Name = "CadastroJogadores";
             Text = "CadastroJogadores";
