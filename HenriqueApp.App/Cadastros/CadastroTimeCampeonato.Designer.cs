@@ -31,6 +31,7 @@
             cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
             cboCampeonatos = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
+            txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             SuspendLayout();
@@ -41,6 +42,7 @@
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboTemporada);
             tabPageCadastro.Controls.Add(cboCampeonatos);
             tabPageCadastro.Controls.Add(cboTime);
@@ -48,6 +50,7 @@
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
             tabPageCadastro.Controls.SetChildIndex(cboCampeonatos, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTemporada, 0);
+            tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // cboTime
             // 
@@ -58,7 +61,7 @@
             cboTime.DropDownHeight = 174;
             cboTime.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTime.DropDownWidth = 121;
-            cboTime.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTime.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboTime.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboTime.FormattingEnabled = true;
             cboTime.Hint = "Times";
@@ -81,7 +84,7 @@
             cboCampeonatos.DropDownHeight = 174;
             cboCampeonatos.DropDownStyle = ComboBoxStyle.DropDownList;
             cboCampeonatos.DropDownWidth = 121;
-            cboCampeonatos.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboCampeonatos.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboCampeonatos.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboCampeonatos.FormattingEnabled = true;
             cboCampeonatos.Hint = "Campeonato";
@@ -104,7 +107,7 @@
             cboTemporada.DropDownHeight = 174;
             cboTemporada.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTemporada.DropDownWidth = 121;
-            cboTemporada.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTemporada.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             cboTemporada.ForeColor = Color.FromArgb(222, 0, 0, 0);
             cboTemporada.FormattingEnabled = true;
             cboTemporada.Hint = "Temporada";
@@ -117,6 +120,37 @@
             cboTemporada.Size = new Size(417, 49);
             cboTemporada.StartIndex = 0;
             cboTemporada.TabIndex = 13;
+            // 
+            // txtId
+            // 
+            txtId.AnimateReadOnly = false;
+            txtId.AutoCompleteMode = AutoCompleteMode.None;
+            txtId.AutoCompleteSource = AutoCompleteSource.None;
+            txtId.BackgroundImageLayout = ImageLayout.None;
+            txtId.CharacterCasing = CharacterCasing.Normal;
+            txtId.Depth = 0;
+            txtId.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.HideSelection = true;
+            txtId.Hint = "ID";
+            txtId.LeadingIcon = null;
+            txtId.Location = new Point(724, 6);
+            txtId.MaxLength = 32767;
+            txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtId.Name = "txtId";
+            txtId.PasswordChar = '\0';
+            txtId.PrefixSuffixText = null;
+            txtId.ReadOnly = false;
+            txtId.RightToLeft = RightToLeft.No;
+            txtId.SelectedText = "";
+            txtId.SelectionLength = 0;
+            txtId.SelectionStart = 0;
+            txtId.ShortcutsEnabled = true;
+            txtId.Size = new Size(55, 48);
+            txtId.TabIndex = 14;
+            txtId.TabStop = false;
+            txtId.TextAlign = HorizontalAlignment.Left;
+            txtId.TrailingIcon = null;
+            txtId.UseSystemPasswordChar = false;
             // 
             // CadastroTimeCampeonato
             // 
@@ -136,5 +170,6 @@
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
         private ReaLTaiizor.Controls.MaterialComboBox cboCampeonatos;
         private ReaLTaiizor.Controls.MaterialComboBox cboTime;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }
