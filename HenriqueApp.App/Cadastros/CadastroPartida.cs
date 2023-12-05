@@ -81,13 +81,19 @@ namespace HenriqueApp.App.Cadastros
 
             var temporadaSelecionada = (Temporada)cboTemporada.SelectedItem;
 
-            var tempCamp = _tempCampService.Get<TempCampModel>()
-                .FirstOrDefault(temp => temp.Camp.Id == campeonatoSelecionado.Id
-                                     && temp.Temp.Id == temporadaSelecionada.Id);
-
             partida.Time1 = (Times)cboTimeUm.SelectedItem;
             partida.Time2 = (Times)cboTimeDois.SelectedItem;
-            //partida.TempCampId = tempCamp;
+            var tempCamp = _tempCampService.Get<TempCamp>()
+        .FirstOrDefault(tc => tc.Camp == campeonatoSelecionado && tc.Temp == temporadaSelecionada);
+            /*
+            if (tempCamp != null)
+            {
+                partida.TempCampId = tempCamp.Id;
+            }
+            else
+            {
+                MessageBox.Show("TempCamp não encontrado para o Campeonato e Temporada selecionados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }*/
             partida.Gol1 = int.TryParse(txtGolUm.Text, out var gol1) ? gol1 : 0;
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
         }
@@ -121,5 +127,6 @@ namespace HenriqueApp.App.Cadastros
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

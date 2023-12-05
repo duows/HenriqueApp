@@ -36,11 +36,9 @@ namespace HenriqueApp.App.Cadastros
             cboTimeDois = new ReaLTaiizor.Controls.MaterialComboBox();
             cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
-            imgVersus = new PictureBox();
             txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)imgVersus).BeginInit();
             SuspendLayout();
             // 
             // materialTabControl
@@ -50,7 +48,6 @@ namespace HenriqueApp.App.Cadastros
             // tabPageCadastro
             // 
             tabPageCadastro.Controls.Add(txtId);
-            tabPageCadastro.Controls.Add(imgVersus);
             tabPageCadastro.Controls.Add(cboTemporada);
             tabPageCadastro.Controls.Add(cboCampeonato);
             tabPageCadastro.Controls.Add(cboTimeDois);
@@ -64,7 +61,6 @@ namespace HenriqueApp.App.Cadastros
             tabPageCadastro.Controls.SetChildIndex(cboTimeDois, 0);
             tabPageCadastro.Controls.SetChildIndex(cboCampeonato, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTemporada, 0);
-            tabPageCadastro.Controls.SetChildIndex(imgVersus, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // txtGolUm
@@ -222,16 +218,6 @@ namespace HenriqueApp.App.Cadastros
             cboTemporada.StartIndex = 0;
             cboTemporada.TabIndex = 19;
             // 
-            // imgVersus
-            // 
-            imgVersus.BackgroundImageLayout = ImageLayout.Stretch;
-            imgVersus.Location = new Point(328, 6);
-            imgVersus.Name = "imgVersus";
-            imgVersus.Size = new Size(117, 102);
-            imgVersus.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgVersus.TabIndex = 20;
-            imgVersus.TabStop = false;
-            // 
             // txtId
             // 
             txtId.AnimateReadOnly = false;
@@ -274,7 +260,6 @@ namespace HenriqueApp.App.Cadastros
             Load += CadastroPartida_Load;
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)imgVersus).EndInit();
             ResumeLayout(false);
         }
 
@@ -285,7 +270,6 @@ namespace HenriqueApp.App.Cadastros
         private ReaLTaiizor.Controls.MaterialComboBox cboTimeDois;
         private ReaLTaiizor.Controls.MaterialComboBox cboTimeUm;
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
-        private PictureBox imgVersus;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }
