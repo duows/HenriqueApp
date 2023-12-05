@@ -1,4 +1,5 @@
-﻿using HenriqueApp.App.Base;
+﻿using AutoMapper;
+using HenriqueApp.App.Base;
 using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
@@ -68,17 +69,27 @@ namespace HenriqueApp.App.Cadastros
             cboTimeDois.ValueMember = "Id";
             cboTimeDois.DisplayMember = "Nome";
             cboTimeDois.DataSource = _timesService.Get<Times>().ToList();
-            
-            cboTempCamp.ValueMember = "Id";
-            cboTempCamp.DisplayMember = "Nome";
-            cboTempCamp.DataSource = _tempCampService.Get<TempCamp>().ToList();
+
+            cboCamp.ValueMember = "Id";
+            cboCamp.DisplayMember = "Nome";
+            cboCamp.DataSource = _campeonatoService.Get<Campeonato>().ToList();
+
+            cboTemp.ValueMember = "Id";
+            cboTemp.DisplayMember = "Ano";
+            cboTemp.DataSource = _temporadaService.Get<Temporada>().ToList();
+
         }
 
         private void PreencheObjeto(Partida partida)
         {
+            var camp = (Campeonato)cboCamp.SelectedItem;
+            var temp = (Temporada)cboTemp.SelectedItem;
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string>() { "Camp", "Temp" }).Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
+
+
             partida.Time1 = (Times)cboTimeUm.SelectedItem;
             partida.Time2 = (Times)cboTimeDois.SelectedItem;
-            partida.TempCampId = (TempCamp)cboTempCamp.SelectedItem;
+            partida.TempCampId = tempCamp;
             partida.Gol1 = int.TryParse(txtGolUm.Text, out var gol1) ? gol1 : 0;
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
         }
@@ -87,41 +98,25 @@ namespace HenriqueApp.App.Cadastros
         {
             try
             {
-                var timeUm = (Times)cboTimeUm.SelectedItem;
-                var timeDois = (Times)cboTimeDois.SelectedItem;
-                var tempCamp = (TempCamp)cboTempCamp.SelectedItem;
 
-                var timeUmAssociado = _timeCampeonatoService.Get<TimeCampeonato>()
-                    .Any(timeCamp => timeCamp.Time.Id == timeUm.Id && timeCamp.Temp.Id == tempCamp.Id);
-
-                var timeDoisAssociado = _timeCampeonatoService.Get<TimeCampeonato>()
-                    .Any(timeCamp => timeCamp.Time.Id == timeDois.Id && timeCamp.Temp.Id == tempCamp.Id);
-
-                if (timeUmAssociado && timeDoisAssociado && timeUm.Id != timeDois.Id)
+                if (IsAlteracao)
                 {
-                    if (IsAlteracao)
+                    if (int.TryParse(txtId.Text, out var id))
                     {
-                        if (int.TryParse(txtId.Text, out var id))
-                        {
-                            var partida = _partidaService.GetById<Partida>(id);
-                            PreencheObjeto(partida);
-                            partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
-                        }
-                    }
-                    else
-                    {
-                        var partida = new Partida();
+                        var partida = _partidaService.GetById<Partida>(id);
                         PreencheObjeto(partida);
-                        _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
+                        partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
                     }
-
-                    MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Ambos os times devem estar associados ao mesmo campeonato e serem diferentes.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var partida = new Partida();
+                    PreencheObjeto(partida);
+                    _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
                 }
+
+                MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
             }
             catch (Exception ex)
             {

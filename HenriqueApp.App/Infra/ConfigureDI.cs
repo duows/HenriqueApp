@@ -33,7 +33,6 @@ namespace HenriqueApp.App.Infra
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
                 options.EnableSensitiveDataLogging();
 
-
                 options.UseMySql(strCon, ServerVersion.AutoDetect(strCon), opt =>
                 {
                     opt.CommandTimeout(180);

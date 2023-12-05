@@ -20,6 +20,10 @@ namespace HenriqueApp.Repository.Mapping
             builder.Property(prop => prop.Posicao);
 
             builder.Property(prop => prop.Pontos);
+
+            builder.Property(prop => prop.Vitoria);
+
+            builder.Property(prop => prop.Derrota);
                 
             builder.Property(prop => prop.Golpro);
 

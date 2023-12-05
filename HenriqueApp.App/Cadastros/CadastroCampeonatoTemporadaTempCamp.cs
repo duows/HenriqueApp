@@ -52,7 +52,6 @@ namespace HenriqueApp.App.Cadastros
             var nome = (camp.Nome + " " + temp.Ano).ToString();
             tempCamp.Camp = camp;
             tempCamp.Temp = temp;
-            tempCamp.Nome = nome;
             tempCamp.Premio = txtPremio.Text;
             tempCamp.Campeao = "Nenhum";
         }

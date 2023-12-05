@@ -17,6 +17,8 @@ namespace HenriqueApp.App.Models
         public int IdTempCamp { get; set; }
         public int? Pontos { get; set; }
         public int? Posicao { get; set; }
+        public int? Derrota { get; set; }
+        public int? Vitoria { get; set; }
         public int? Golpro { get; set; }
         public int? Golcon { get; set; }
     }

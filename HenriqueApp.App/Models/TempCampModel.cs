@@ -11,7 +11,6 @@ namespace HenriqueApp.App.Models
     {
         public int Id { get; set; }
         public string? Premio { get; set; }
-        public string? Nome { get; set; }
         public Temporada? Temp { get; set; }
         public int IdTemporada { get; set; }
         public int AnoTemporada { get; set; }

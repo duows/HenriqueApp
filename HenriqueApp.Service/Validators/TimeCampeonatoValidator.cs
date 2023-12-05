@@ -20,6 +20,12 @@ namespace HenriqueApp.Service.Validators
             RuleFor(c => c.Pontos)
                 .NotEmpty().WithMessage("Por favor informe os pontos.")
                 .NotNull().WithMessage("Por favor informe os pontos.");
+            RuleFor(c => c.Vitoria)
+                .NotEmpty().WithMessage("Por favor informe as Vitoria.")
+                .NotNull().WithMessage("Por favor informe as Vitoria.");
+            RuleFor(c => c.Derrota)
+                .NotEmpty().WithMessage("Por favor informe as Derrota.")
+                .NotNull().WithMessage("Por favor informe as Derrota.");
             RuleFor(c => c.Posicao)
                 .NotEmpty().WithMessage("Por favor informe a posicao.")
                 .NotNull().WithMessage("Por favor informe a posicao.");

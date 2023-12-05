@@ -29,25 +29,28 @@
         private void InitializeComponent()
         {
             cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
-            cboTempCamp = new ReaLTaiizor.Controls.MaterialComboBox();
+            cboCamp = new ReaLTaiizor.Controls.MaterialComboBox();
             txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            cboTemp = new ReaLTaiizor.Controls.MaterialComboBox();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
             SuspendLayout();
             // 
             // materialTabControl
             // 
-            materialTabControl.Size = new Size(499, 244);
+            materialTabControl.Size = new Size(499, 283);
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(cboTemp);
             tabPageCadastro.Controls.Add(txtId);
-            tabPageCadastro.Controls.Add(cboTempCamp);
+            tabPageCadastro.Controls.Add(cboCamp);
             tabPageCadastro.Controls.Add(cboTime);
-            tabPageCadastro.Size = new Size(491, 209);
+            tabPageCadastro.Size = new Size(491, 248);
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
-            tabPageCadastro.Controls.SetChildIndex(cboTempCamp, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboCamp, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboTemp, 0);
             // 
             // cboTime
             // 
@@ -72,28 +75,28 @@
             cboTime.StartIndex = 0;
             cboTime.TabIndex = 11;
             // 
-            // cboTempCamp
+            // cboCamp
             // 
-            cboTempCamp.AutoResize = false;
-            cboTempCamp.BackColor = Color.FromArgb(255, 255, 255);
-            cboTempCamp.Depth = 0;
-            cboTempCamp.DrawMode = DrawMode.OwnerDrawVariable;
-            cboTempCamp.DropDownHeight = 174;
-            cboTempCamp.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboTempCamp.DropDownWidth = 121;
-            cboTempCamp.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cboTempCamp.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cboTempCamp.FormattingEnabled = true;
-            cboTempCamp.Hint = "Campeonato - Temporada";
-            cboTempCamp.IntegralHeight = false;
-            cboTempCamp.ItemHeight = 43;
-            cboTempCamp.Location = new Point(6, 61);
-            cboTempCamp.MaxDropDownItems = 4;
-            cboTempCamp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cboTempCamp.Name = "cboTempCamp";
-            cboTempCamp.Size = new Size(417, 49);
-            cboTempCamp.StartIndex = 0;
-            cboTempCamp.TabIndex = 12;
+            cboCamp.AutoResize = false;
+            cboCamp.BackColor = Color.FromArgb(255, 255, 255);
+            cboCamp.Depth = 0;
+            cboCamp.DrawMode = DrawMode.OwnerDrawVariable;
+            cboCamp.DropDownHeight = 174;
+            cboCamp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCamp.DropDownWidth = 121;
+            cboCamp.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboCamp.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboCamp.FormattingEnabled = true;
+            cboCamp.Hint = "Campeonato";
+            cboCamp.IntegralHeight = false;
+            cboCamp.ItemHeight = 43;
+            cboCamp.Location = new Point(6, 61);
+            cboCamp.MaxDropDownItems = 4;
+            cboCamp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboCamp.Name = "cboCamp";
+            cboCamp.Size = new Size(417, 49);
+            cboCamp.StartIndex = 0;
+            cboCamp.TabIndex = 12;
             // 
             // txtId
             // 
@@ -126,11 +129,34 @@
             txtId.TrailingIcon = null;
             txtId.UseSystemPasswordChar = false;
             // 
+            // cboTemp
+            // 
+            cboTemp.AutoResize = false;
+            cboTemp.BackColor = Color.FromArgb(255, 255, 255);
+            cboTemp.Depth = 0;
+            cboTemp.DrawMode = DrawMode.OwnerDrawVariable;
+            cboTemp.DropDownHeight = 174;
+            cboTemp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTemp.DropDownWidth = 121;
+            cboTemp.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTemp.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboTemp.FormattingEnabled = true;
+            cboTemp.Hint = "Temporada";
+            cboTemp.IntegralHeight = false;
+            cboTemp.ItemHeight = 43;
+            cboTemp.Location = new Point(6, 116);
+            cboTemp.MaxDropDownItems = 4;
+            cboTemp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboTemp.Name = "cboTemp";
+            cboTemp.Size = new Size(417, 49);
+            cboTemp.StartIndex = 0;
+            cboTemp.TabIndex = 15;
+            // 
             // CadastroTimeCampeonato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(505, 311);
+            ClientSize = new Size(505, 350);
             Location = new Point(0, 0);
             Name = "CadastroTimeCampeonato";
             Text = "CadastroTimeCampeonato";
@@ -142,8 +168,9 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
-        private ReaLTaiizor.Controls.MaterialComboBox cboTempCamp;
+        private ReaLTaiizor.Controls.MaterialComboBox cboCamp;
         private ReaLTaiizor.Controls.MaterialComboBox cboTime;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
+        private ReaLTaiizor.Controls.MaterialComboBox cboTemp;
     }
 }
