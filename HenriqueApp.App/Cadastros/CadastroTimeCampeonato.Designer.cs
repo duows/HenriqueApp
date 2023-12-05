@@ -37,14 +37,14 @@
             // 
             // materialTabControl
             // 
-            materialTabControl.Size = new Size(794, 383);
+            materialTabControl.Size = new Size(499, 244);
             // 
             // tabPageCadastro
             // 
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboTempCamp);
             tabPageCadastro.Controls.Add(cboTime);
-            tabPageCadastro.Size = new Size(786, 348);
+            tabPageCadastro.Size = new Size(491, 209);
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTempCamp, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
@@ -107,7 +107,7 @@
             txtId.HideSelection = true;
             txtId.Hint = "ID";
             txtId.LeadingIcon = null;
-            txtId.Location = new Point(724, 6);
+            txtId.Location = new Point(429, 6);
             txtId.MaxLength = 32767;
             txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             txtId.Name = "txtId";
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(505, 311);
             Location = new Point(0, 0);
             Name = "CadastroTimeCampeonato";
             Text = "CadastroTimeCampeonato";

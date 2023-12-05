@@ -22,6 +22,7 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<Campeonato> _campeonatoService;
         private readonly IBaseService<Temporada> _temporadaService;
         private readonly IBaseService<TempCamp> _tempCampService;
+        private readonly IBaseService<TimeCampeonato> _timeCampeonatoService;
 
         private List<Partida>? partida;
 
@@ -29,13 +30,15 @@ namespace HenriqueApp.App.Cadastros
                                IBaseService<Times> timesService,
                                IBaseService<Campeonato> campeonatoService,
                                IBaseService<Temporada> temporadaService,
-                               IBaseService<TempCamp> tempCampService)
+                               IBaseService<TempCamp> tempCampService,
+                               IBaseService<TimeCampeonato> timeCampeonatoService)
         {
             _partidaService = partidaService;
             _timesService = timesService;
             _campeonatoService = campeonatoService;
             _temporadaService = temporadaService;
             _tempCampService = tempCampService;
+            _timeCampeonatoService = timeCampeonatoService;
             InitializeComponent();
             Load += CadastroPartida_Load;
         }
@@ -84,25 +87,41 @@ namespace HenriqueApp.App.Cadastros
         {
             try
             {
-                if (IsAlteracao)
+                var timeUm = (Times)cboTimeUm.SelectedItem;
+                var timeDois = (Times)cboTimeDois.SelectedItem;
+                var tempCamp = (TempCamp)cboTempCamp.SelectedItem;
+
+                var timeUmAssociado = _timeCampeonatoService.Get<TimeCampeonato>()
+                    .Any(timeCamp => timeCamp.Time.Id == timeUm.Id && timeCamp.Temp.Id == tempCamp.Id);
+
+                var timeDoisAssociado = _timeCampeonatoService.Get<TimeCampeonato>()
+                    .Any(timeCamp => timeCamp.Time.Id == timeDois.Id && timeCamp.Temp.Id == tempCamp.Id);
+
+                if (timeUmAssociado && timeDoisAssociado && timeUm.Id != timeDois.Id)
                 {
-                    if (int.TryParse(txtId.Text, out var id))
+                    if (IsAlteracao)
                     {
-                        var partida = _partidaService.GetById<Partida>(id);
-                        PreencheObjeto(partida);
-                        partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
+                        if (int.TryParse(txtId.Text, out var id))
+                        {
+                            var partida = _partidaService.GetById<Partida>(id);
+                            PreencheObjeto(partida);
+                            partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
+                        }
                     }
+                    else
+                    {
+                        var partida = new Partida();
+                        PreencheObjeto(partida);
+                        _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
+                    }
+
+                    MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
                 }
                 else
                 {
-                    var partida = new Partida();
-                    PreencheObjeto(partida);
-                    _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
-
+                    MessageBox.Show("Ambos os times devem estar associados ao mesmo campeonato e serem diferentes.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
             catch (Exception ex)
             {
