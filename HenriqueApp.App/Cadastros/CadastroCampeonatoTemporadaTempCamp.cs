@@ -47,8 +47,12 @@ namespace HenriqueApp.App.Cadastros
 
         private void PreencheObjeto(TempCamp tempCamp)
         {
-            tempCamp.Camp = (Campeonato)cboCampeonato.SelectedItem;
-            tempCamp.Temp = (Temporada)cboTemporada.SelectedItem;
+            var camp = (Campeonato)cboCampeonato.SelectedItem;
+            var temp = (Temporada)cboTemporada.SelectedItem;
+            var nome = (camp.Nome + " " + temp.Ano).ToString();
+            tempCamp.Camp = camp;
+            tempCamp.Temp = temp;
+            tempCamp.Nome = nome;
             tempCamp.Premio = txtPremio.Text;
             tempCamp.Campeao = "Nenhum";
         }

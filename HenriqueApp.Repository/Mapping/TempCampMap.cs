@@ -17,6 +17,10 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.HasKey(prop => prop.Id);
 
+            builder.Property(prop => prop.Nome)
+                .IsRequired()
+                .HasColumnType("varchar(100)");
+
             builder.Property(prop => prop.Premio)
                 .IsRequired()
                 .HasColumnType("varchar(45)");

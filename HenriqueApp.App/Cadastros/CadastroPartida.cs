@@ -65,35 +65,17 @@ namespace HenriqueApp.App.Cadastros
             cboTimeDois.ValueMember = "Id";
             cboTimeDois.DisplayMember = "Nome";
             cboTimeDois.DataSource = _timesService.Get<Times>().ToList();
-
-            cboCampeonato.ValueMember = "Id";
-            cboCampeonato.DisplayMember = "Nome";
-            cboCampeonato.DataSource = _campeonatoService.Get<Campeonato>().ToList();
-
-            cboTemporada.ValueMember = "Id";
-            cboTemporada.DisplayMember = "Ano";
-            cboTemporada.DataSource = _temporadaService.Get<Temporada>().ToList();
+            
+            cboTempCamp.ValueMember = "Id";
+            cboTempCamp.DisplayMember = "Nome";
+            cboTempCamp.DataSource = _tempCampService.Get<TempCamp>().ToList();
         }
 
         private void PreencheObjeto(Partida partida)
         {
-            var campeonatoSelecionado = (Campeonato)cboCampeonato.SelectedItem;
-
-            var temporadaSelecionada = (Temporada)cboTemporada.SelectedItem;
-
             partida.Time1 = (Times)cboTimeUm.SelectedItem;
             partida.Time2 = (Times)cboTimeDois.SelectedItem;
-            var tempCamp = _tempCampService.Get<TempCamp>()
-        .FirstOrDefault(tc => tc.Camp == campeonatoSelecionado && tc.Temp == temporadaSelecionada);
-            /*
-            if (tempCamp != null)
-            {
-                partida.TempCampId = tempCamp.Id;
-            }
-            else
-            {
-                MessageBox.Show("TempCamp não encontrado para o Campeonato e Temporada selecionados.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
+            partida.TempCampId = (TempCamp)cboTempCamp.SelectedItem;
             partida.Gol1 = int.TryParse(txtGolUm.Text, out var gol1) ? gol1 : 0;
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
         }

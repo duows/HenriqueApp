@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
-            cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
-            cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
+            cboTempCamp = new ReaLTaiizor.Controls.MaterialComboBox();
             txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
@@ -43,13 +42,11 @@
             // tabPageCadastro
             // 
             tabPageCadastro.Controls.Add(txtId);
-            tabPageCadastro.Controls.Add(cboTemporada);
-            tabPageCadastro.Controls.Add(cboCampeonato);
+            tabPageCadastro.Controls.Add(cboTempCamp);
             tabPageCadastro.Controls.Add(cboTime);
             tabPageCadastro.Size = new Size(786, 348);
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
-            tabPageCadastro.Controls.SetChildIndex(cboCampeonato, 0);
-            tabPageCadastro.Controls.SetChildIndex(cboTemporada, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboTempCamp, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
             // cboTime
@@ -75,51 +72,28 @@
             cboTime.StartIndex = 0;
             cboTime.TabIndex = 11;
             // 
-            // cboCampeonato
+            // cboTempCamp
             // 
-            cboCampeonato.AutoResize = false;
-            cboCampeonato.BackColor = Color.FromArgb(255, 255, 255);
-            cboCampeonato.Depth = 0;
-            cboCampeonato.DrawMode = DrawMode.OwnerDrawVariable;
-            cboCampeonato.DropDownHeight = 174;
-            cboCampeonato.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboCampeonato.DropDownWidth = 121;
-            cboCampeonato.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cboCampeonato.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cboCampeonato.FormattingEnabled = true;
-            cboCampeonato.Hint = "Campeonato";
-            cboCampeonato.IntegralHeight = false;
-            cboCampeonato.ItemHeight = 43;
-            cboCampeonato.Location = new Point(6, 61);
-            cboCampeonato.MaxDropDownItems = 4;
-            cboCampeonato.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cboCampeonato.Name = "cboCampeonato";
-            cboCampeonato.Size = new Size(417, 49);
-            cboCampeonato.StartIndex = 0;
-            cboCampeonato.TabIndex = 12;
-            // 
-            // cboTemporada
-            // 
-            cboTemporada.AutoResize = false;
-            cboTemporada.BackColor = Color.FromArgb(255, 255, 255);
-            cboTemporada.Depth = 0;
-            cboTemporada.DrawMode = DrawMode.OwnerDrawVariable;
-            cboTemporada.DropDownHeight = 174;
-            cboTemporada.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboTemporada.DropDownWidth = 121;
-            cboTemporada.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cboTemporada.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cboTemporada.FormattingEnabled = true;
-            cboTemporada.Hint = "Temporada";
-            cboTemporada.IntegralHeight = false;
-            cboTemporada.ItemHeight = 43;
-            cboTemporada.Location = new Point(6, 116);
-            cboTemporada.MaxDropDownItems = 4;
-            cboTemporada.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cboTemporada.Name = "cboTemporada";
-            cboTemporada.Size = new Size(417, 49);
-            cboTemporada.StartIndex = 0;
-            cboTemporada.TabIndex = 13;
+            cboTempCamp.AutoResize = false;
+            cboTempCamp.BackColor = Color.FromArgb(255, 255, 255);
+            cboTempCamp.Depth = 0;
+            cboTempCamp.DrawMode = DrawMode.OwnerDrawVariable;
+            cboTempCamp.DropDownHeight = 174;
+            cboTempCamp.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTempCamp.DropDownWidth = 121;
+            cboTempCamp.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboTempCamp.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboTempCamp.FormattingEnabled = true;
+            cboTempCamp.Hint = "Campeonato - Temporada";
+            cboTempCamp.IntegralHeight = false;
+            cboTempCamp.ItemHeight = 43;
+            cboTempCamp.Location = new Point(6, 61);
+            cboTempCamp.MaxDropDownItems = 4;
+            cboTempCamp.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboTempCamp.Name = "cboTempCamp";
+            cboTempCamp.Size = new Size(417, 49);
+            cboTempCamp.StartIndex = 0;
+            cboTempCamp.TabIndex = 12;
             // 
             // txtId
             // 
@@ -168,7 +142,7 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
-        private ReaLTaiizor.Controls.MaterialComboBox cboCampeonato;
+        private ReaLTaiizor.Controls.MaterialComboBox cboTempCamp;
         private ReaLTaiizor.Controls.MaterialComboBox cboTime;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }

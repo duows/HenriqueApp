@@ -42,22 +42,15 @@ namespace HenriqueApp.App.Cadastros
             cboTime.DisplayMember = "Nome";
             cboTime.DataSource = _timesService.Get<Times>().ToList();
 
-            cboCampeonato.ValueMember = "Id";
-            cboCampeonato.DisplayMember = "Nome";
-            cboCampeonato.DataSource = _campeonatoService.Get<Campeonato>().ToList();
-
-            cboTemporada.ValueMember = "Id";
-            cboTemporada.DisplayMember = "Ano";
-            cboTemporada.DataSource = _temporadaService.Get<Temporada>().ToList();
+            cboTempCamp.ValueMember = "Id";
+            cboTempCamp.DisplayMember = "Nome";
+            cboTempCamp.DataSource = _tempCampService.Get<TempCamp>().ToList();
         }
 
         private void PreencheObjeto(TimeCampeonato timeCampeonato)
         {
             timeCampeonato.Time = (Times)cboTime.SelectedItem;
-            //timeCampeonato.Campeonato = (Campeonato)cboCampeonato.SelectedItem;
-            //timeCampeonato.Temporada = (Temporada)cboTemporada.SelectedItem;
+            timeCampeonato.Temp = (TempCamp)cboTempCamp.SelectedItem;
         }
-
-        
     }
 }
