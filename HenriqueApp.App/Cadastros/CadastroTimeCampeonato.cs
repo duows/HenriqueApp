@@ -15,22 +15,49 @@ namespace HenriqueApp.App.Cadastros
 {
     public partial class CadastroTimeCampeonato : CadastroBase
     {
-        private readonly IBaseService<TimeCampeonato> _TimeCampeonatoService;
-        private readonly IBaseService<Times> _TimesService;
-        private readonly IBaseService<Campeonato> _CampeonatoService;
-        private readonly IBaseService<Temporada> _TemporadaService;
-        private readonly IBaseService<TempCamp> _TempCampService;
+        private readonly IBaseService<TimeCampeonato> _timeCampeonatoService;
+        private readonly IBaseService<Times> _timesService;
+        private readonly IBaseService<Campeonato> _campeonatoService;
+        private readonly IBaseService<Temporada> _temporadaService;
+        private readonly IBaseService<TempCamp> _tempCampService;
 
-        private List<TimeCampeonato>? produtos;
-        public CadastroTimeCampeonato()
+        private List<TimeCampeonato>? timeCampeonato;
+        public CadastroTimeCampeonato(IBaseService<TimeCampeonato> timeCampeonatoService,
+                                      IBaseService<Times> vendaService,
+                                      IBaseService<Campeonato> campeonatoService,
+                                      IBaseService<Temporada> temporadaService,
+                                      IBaseService<TempCamp> tempCampService)
         {
+            _timeCampeonatoService = timeCampeonatoService;
+            _timesService = vendaService;
+            _campeonatoService = campeonatoService;
+            _temporadaService = temporadaService;
+            _tempCampService = tempCampService;
             InitializeComponent();
             CarregarCombo();
         }
-
         private void CarregarCombo()
         {
-            
+            cboTime.ValueMember = "Id";
+            cboTime.DisplayMember = "Nome";
+            cboTime.DataSource = _timesService.Get<Times>().ToList();
+
+            cboCampeonato.ValueMember = "Id";
+            cboCampeonato.DisplayMember = "Nome";
+            cboCampeonato.DataSource = _campeonatoService.Get<Campeonato>().ToList();
+
+            cboTemporada.ValueMember = "Id";
+            cboTemporada.DisplayMember = "Ano";
+            cboTemporada.DataSource = _temporadaService.Get<Temporada>().ToList();
         }
+
+        private void PreencheObjeto(TimeCampeonato timeCampeonato)
+        {
+            timeCampeonato.Time = (Times)cboTime.SelectedItem;
+            //timeCampeonato.Campeonato = (Campeonato)cboCampeonato.SelectedItem;
+            //timeCampeonato.Temporada = (Temporada)cboTemporada.SelectedItem;
+        }
+
+        
     }
 }

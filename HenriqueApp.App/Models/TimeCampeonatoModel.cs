@@ -9,10 +9,11 @@ namespace HenriqueApp.App.Models
 {
     public class TimeCampeonatoModel
     {
-        //public Times? Time { get; set; }
+        public int Id { get; set; }
+        public Times? Time { get; set; }
         public int IdTime { get; set; }
         public string ?NomeTime { get; set; }
-        //public TempCamp? Temp { get; set; }
+        public TempCamp? Temp { get; set; }
         public int IdTempCamp { get; set; }
         public int? Pontos { get; set; }
         public int? Posicao { get; set; }

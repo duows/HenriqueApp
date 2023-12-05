@@ -9,6 +9,7 @@ namespace HenriqueApp.App.Models
 {
     public class PartidaModel
     {
+        public int Id { get; set; }
         public int? Gol1 { get; set; }
         public int? Gol2 { get; set; }
         //public Times? Time1 { get; set; }

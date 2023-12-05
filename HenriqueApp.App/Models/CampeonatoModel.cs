@@ -8,6 +8,7 @@ namespace HenriqueApp.App.Models
 {
     public class CampeonatoModel
     {
+        public int Id { get; set; }
         public string? Nome { get; set; }
     }
 }

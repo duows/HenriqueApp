@@ -60,6 +60,11 @@ namespace HenriqueApp.App
             Close();
         }
 
+        private void timeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Exibeformulario<CadastroTimeCampeonato>();
+        }
+
         private void Exibeformulario<TFormlario>() where TFormlario : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TFormlario>();

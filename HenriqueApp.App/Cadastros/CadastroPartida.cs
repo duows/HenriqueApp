@@ -77,7 +77,13 @@ namespace HenriqueApp.App.Cadastros
 
         private void PreencheObjeto(Partida partida)
         {
+            var campeonatoSelecionado = (Campeonato)cboCampeonato.SelectedItem;
 
+            var temporadaSelecionada = (Temporada)cboTemporada.SelectedItem;
+
+            var tempCamp = _tempCampService.Get<TempCampModel>()
+                .FirstOrDefault(temp => temp.Camp.Id == campeonatoSelecionado.Id
+                                     && temp.Temp.Id == temporadaSelecionada.Id);
 
             partida.Time1 = (Times)cboTimeUm.SelectedItem;
             partida.Time2 = (Times)cboTimeDois.SelectedItem;

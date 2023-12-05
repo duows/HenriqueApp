@@ -36,6 +36,7 @@
             partidaToolStripMenuItem = new ToolStripMenuItem();
             ajudaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            timeToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,28 +59,29 @@
             // timeToolStripMenuItem
             // 
             timeToolStripMenuItem.Name = "timeToolStripMenuItem";
-            timeToolStripMenuItem.Size = new Size(143, 22);
+            timeToolStripMenuItem.Size = new Size(180, 22);
             timeToolStripMenuItem.Text = "Time";
             timeToolStripMenuItem.Click += timeToolStripMenuItem_Click;
             // 
             // jogadorToolStripMenuItem
             // 
             jogadorToolStripMenuItem.Name = "jogadorToolStripMenuItem";
-            jogadorToolStripMenuItem.Size = new Size(143, 22);
+            jogadorToolStripMenuItem.Size = new Size(180, 22);
             jogadorToolStripMenuItem.Text = "Jogador";
             jogadorToolStripMenuItem.Click += jogadorToolStripMenuItem_Click;
             // 
             // campeonatoToolStripMenuItem
             // 
+            campeonatoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { timeToolStripMenuItem1 });
             campeonatoToolStripMenuItem.Name = "campeonatoToolStripMenuItem";
-            campeonatoToolStripMenuItem.Size = new Size(143, 22);
+            campeonatoToolStripMenuItem.Size = new Size(180, 22);
             campeonatoToolStripMenuItem.Text = "Campeonato";
             campeonatoToolStripMenuItem.Click += campeonatoToolStripMenuItem_Click;
             // 
             // partidaToolStripMenuItem
             // 
             partidaToolStripMenuItem.Name = "partidaToolStripMenuItem";
-            partidaToolStripMenuItem.Size = new Size(143, 22);
+            partidaToolStripMenuItem.Size = new Size(180, 22);
             partidaToolStripMenuItem.Text = "Partida";
             partidaToolStripMenuItem.Click += partidaToolStripMenuItem_Click;
             // 
@@ -95,6 +97,13 @@
             sairToolStripMenuItem.Size = new Size(38, 20);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click_1;
+            // 
+            // timeToolStripMenuItem1
+            // 
+            timeToolStripMenuItem1.Name = "timeToolStripMenuItem1";
+            timeToolStripMenuItem1.Size = new Size(180, 22);
+            timeToolStripMenuItem1.Text = "Time";
+            timeToolStripMenuItem1.Click += timeToolStripMenuItem1_Click;
             // 
             // FormPrincipal
             // 
@@ -125,5 +134,6 @@
         private ToolStripMenuItem partidaToolStripMenuItem;
         private ToolStripMenuItem ajudaToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
+        private ToolStripMenuItem timeToolStripMenuItem1;
     }
 }

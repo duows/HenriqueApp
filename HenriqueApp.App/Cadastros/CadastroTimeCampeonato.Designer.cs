@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             cboTime = new ReaLTaiizor.Controls.MaterialComboBox();
-            cboCampeonatos = new ReaLTaiizor.Controls.MaterialComboBox();
+            cboCampeonato = new ReaLTaiizor.Controls.MaterialComboBox();
             cboTemporada = new ReaLTaiizor.Controls.MaterialComboBox();
             txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialTabControl.SuspendLayout();
@@ -44,11 +44,11 @@
             // 
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboTemporada);
-            tabPageCadastro.Controls.Add(cboCampeonatos);
+            tabPageCadastro.Controls.Add(cboCampeonato);
             tabPageCadastro.Controls.Add(cboTime);
             tabPageCadastro.Size = new Size(786, 348);
             tabPageCadastro.Controls.SetChildIndex(cboTime, 0);
-            tabPageCadastro.Controls.SetChildIndex(cboCampeonatos, 0);
+            tabPageCadastro.Controls.SetChildIndex(cboCampeonato, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTemporada, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             // 
@@ -75,28 +75,28 @@
             cboTime.StartIndex = 0;
             cboTime.TabIndex = 11;
             // 
-            // cboCampeonatos
+            // cboCampeonato
             // 
-            cboCampeonatos.AutoResize = false;
-            cboCampeonatos.BackColor = Color.FromArgb(255, 255, 255);
-            cboCampeonatos.Depth = 0;
-            cboCampeonatos.DrawMode = DrawMode.OwnerDrawVariable;
-            cboCampeonatos.DropDownHeight = 174;
-            cboCampeonatos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboCampeonatos.DropDownWidth = 121;
-            cboCampeonatos.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cboCampeonatos.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cboCampeonatos.FormattingEnabled = true;
-            cboCampeonatos.Hint = "Campeonato";
-            cboCampeonatos.IntegralHeight = false;
-            cboCampeonatos.ItemHeight = 43;
-            cboCampeonatos.Location = new Point(6, 61);
-            cboCampeonatos.MaxDropDownItems = 4;
-            cboCampeonatos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cboCampeonatos.Name = "cboCampeonatos";
-            cboCampeonatos.Size = new Size(417, 49);
-            cboCampeonatos.StartIndex = 0;
-            cboCampeonatos.TabIndex = 12;
+            cboCampeonato.AutoResize = false;
+            cboCampeonato.BackColor = Color.FromArgb(255, 255, 255);
+            cboCampeonato.Depth = 0;
+            cboCampeonato.DrawMode = DrawMode.OwnerDrawVariable;
+            cboCampeonato.DropDownHeight = 174;
+            cboCampeonato.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboCampeonato.DropDownWidth = 121;
+            cboCampeonato.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cboCampeonato.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cboCampeonato.FormattingEnabled = true;
+            cboCampeonato.Hint = "Campeonato";
+            cboCampeonato.IntegralHeight = false;
+            cboCampeonato.ItemHeight = 43;
+            cboCampeonato.Location = new Point(6, 61);
+            cboCampeonato.MaxDropDownItems = 4;
+            cboCampeonato.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cboCampeonato.Name = "cboCampeonato";
+            cboCampeonato.Size = new Size(417, 49);
+            cboCampeonato.StartIndex = 0;
+            cboCampeonato.TabIndex = 12;
             // 
             // cboTemporada
             // 
@@ -129,7 +129,7 @@
             txtId.BackgroundImageLayout = ImageLayout.None;
             txtId.CharacterCasing = CharacterCasing.Normal;
             txtId.Depth = 0;
-            txtId.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtId.HideSelection = true;
             txtId.Hint = "ID";
             txtId.LeadingIcon = null;
@@ -168,7 +168,7 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialComboBox cboTemporada;
-        private ReaLTaiizor.Controls.MaterialComboBox cboCampeonatos;
+        private ReaLTaiizor.Controls.MaterialComboBox cboCampeonato;
         private ReaLTaiizor.Controls.MaterialComboBox cboTime;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }

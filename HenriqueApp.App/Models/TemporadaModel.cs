@@ -8,6 +8,7 @@ namespace HenriqueApp.App.Models
 {
     public class TemporadaModel
     {
+        public int Id { get; set; }
         public string? Ano { get; set; }
     }
 }
