@@ -19,6 +19,8 @@ namespace HenriqueApp.App.Models
         public int IdTime2 { get; set; }
         public string ?NomeTime2 { get; set; }
         //public TempCamp? TempCampId { get; set; }
-        public int TempCamp { get; set; }
+        public int IdTempCamp { get; set; }
+        public string ?NomeCamp { get; set; }
+        public string ?AnoTemporada { get; set; }
     }
 }

@@ -38,14 +38,13 @@
             novoCampeonatoToolStripMenuItem = new ToolStripMenuItem();
             classificaçãoToolStripMenuItem = new ToolStripMenuItem();
             partidaToolStripMenuItem = new ToolStripMenuItem();
-            ajudaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, ajudaToolStripMenuItem, sairToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, sairToolStripMenuItem });
             menuStrip1.Location = new Point(3, 64);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(794, 24);
@@ -62,14 +61,14 @@
             // timeToolStripMenuItem
             // 
             timeToolStripMenuItem.Name = "timeToolStripMenuItem";
-            timeToolStripMenuItem.Size = new Size(180, 22);
+            timeToolStripMenuItem.Size = new Size(143, 22);
             timeToolStripMenuItem.Text = "Time";
             timeToolStripMenuItem.Click += timeToolStripMenuItem_Click;
             // 
             // jogadorToolStripMenuItem
             // 
             jogadorToolStripMenuItem.Name = "jogadorToolStripMenuItem";
-            jogadorToolStripMenuItem.Size = new Size(180, 22);
+            jogadorToolStripMenuItem.Size = new Size(143, 22);
             jogadorToolStripMenuItem.Text = "Jogador";
             jogadorToolStripMenuItem.Click += jogadorToolStripMenuItem_Click;
             // 
@@ -77,7 +76,7 @@
             // 
             campeonatoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { timeToolStripMenuItem1, novoCampeonatoToolStripMenuItem, classificaçãoToolStripMenuItem });
             campeonatoToolStripMenuItem.Name = "campeonatoToolStripMenuItem";
-            campeonatoToolStripMenuItem.Size = new Size(180, 22);
+            campeonatoToolStripMenuItem.Size = new Size(143, 22);
             campeonatoToolStripMenuItem.Text = "Campeonato";
             campeonatoToolStripMenuItem.Click += campeonatoToolStripMenuItem_Click;
             // 
@@ -105,15 +104,9 @@
             // partidaToolStripMenuItem
             // 
             partidaToolStripMenuItem.Name = "partidaToolStripMenuItem";
-            partidaToolStripMenuItem.Size = new Size(180, 22);
+            partidaToolStripMenuItem.Size = new Size(143, 22);
             partidaToolStripMenuItem.Text = "Partida";
             partidaToolStripMenuItem.Click += partidaToolStripMenuItem_Click;
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            ajudaToolStripMenuItem.Size = new Size(50, 20);
-            ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // sairToolStripMenuItem
             // 
@@ -152,7 +145,6 @@
         private ToolStripMenuItem jogadorToolStripMenuItem;
         private ToolStripMenuItem campeonatoToolStripMenuItem;
         private ToolStripMenuItem partidaToolStripMenuItem;
-        private ToolStripMenuItem ajudaToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem timeToolStripMenuItem1;
         private ToolStripMenuItem novoCampeonatoToolStripMenuItem;

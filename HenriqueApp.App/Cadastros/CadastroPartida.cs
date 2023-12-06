@@ -175,9 +175,6 @@ namespace HenriqueApp.App.Cadastros
                     _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
                     AtualizaTime(partida.Time1!, partida.Time2!);
                 }
-
-                MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
             catch (Exception ex)
             {
@@ -205,10 +202,78 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            partida = _partidaService.Get<PartidaModel>(new List<string> { "Times", "TempCamp" }).ToList();
+            partida = _partidaService.Get<PartidaModel>(new List<string> { }).ToList();
             dataGridViewConsulta.DataSource = partida;
-           // dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dataGridViewConsulta.Columns["NomeTime"].HeaderText = "Time atual";
+            dataGridViewConsulta.Columns["Id"].Visible = false;
+            dataGridViewConsulta.Columns["IdTime1"].Visible = false;
+            dataGridViewConsulta.Columns["IdTime2"].Visible = false;
+            dataGridViewConsulta.Columns["NomeTime1"].Visible = false;
+            dataGridViewConsulta.Columns["NomeTime2"].Visible = false;
+            dataGridViewConsulta.Columns["IdTempCamp"].Visible = false;
+            dataGridViewConsulta.Columns["NomeCamp"].Visible = false;
+            dataGridViewConsulta.Columns["AnoTemporada"].Visible = false;
+            //dataGridViewConsulta.Columns["AnoTemporada"].HeaderText = "Ano";
+            //dataGridViewConsulta.Columns["NomeCampeonato"].HeaderText = "Campeonato";
+        }
+
+        protected override void CarregaRegistro(DataGridViewRow? linha)
+        {
+            txtId.Text = linha?.Cells["Id"].Value.ToString();
+            txtGolUm.Text = linha?.Cells["Gol1"].Value.ToString();
+            txtGolDois.Text = linha?.Cells["Gol2"].Value.ToString();
+            cboCamp.SelectedValue = linha?.Cells["NomeCamp"].Value;
+            cboTemp.SelectedValue = linha?.Cells["AnoTemporada"].Value;
+            cboTimeUm.SelectedValue = linha?.Cells["NomeTime1"].Value;
+            cboTimeDois.SelectedValue = linha?.Cells["NomeTime2"].Value;
+        }
+
+        protected override void Deletar(int id)
+        {
+            try
+            {
+                _partidaService.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Henrique App", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cboTemp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var camp = (Campeonato)cboCamp.SelectedItem;
+            var temp = (Temporada)cboTemp.SelectedItem;
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" })
+                    .Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
+
+            var times = _timeCampeonatoService.Get<TimeCampeonato>(new List<string> { "Time", "Temp" })
+                .Where(x => x.Temp!.Id == tempCamp!.Id).ToList();
+
+            var timesDisponiveis = new List<Times>();
+
+            foreach (var time in times)
+            {
+                timesDisponiveis.Add(time.Time!);
+            }
+
+            cboTimeUm.ValueMember = "Id";
+            cboTimeUm.DisplayMember = "Nome";
+            cboTimeUm.DataSource = timesDisponiveis;
+
+            cboTimeDois.ValueMember = "Id";
+            cboTimeDois.DisplayMember = "Nome";
+            cboTimeDois.DataSource = timesDisponiveis;
+        }
+
+        private void cboTimeUm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var timeMandante = (Times)cboTimeUm.SelectedItem;
+
+            var timesDisponiveis = _timesService.Get<Times>()
+                .Where(time => time.Id != timeMandante.Id)
+                .ToList();
+
+            cboTimeDois.DataSource = timesDisponiveis;
         }
     }
 }
