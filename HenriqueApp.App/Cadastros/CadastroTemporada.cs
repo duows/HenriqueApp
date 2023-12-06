@@ -68,6 +68,10 @@ namespace HenriqueApp.App.Cadastros
             try
             {
                 _temporadaService.Delete(id);
+                if (CadastroCampeonatoTemporadaTempCamp.instance != null)
+                {
+                    CadastroCampeonatoTemporadaTempCamp.instance.CarregarCombo();
+                }
             }
             catch (Exception ex)
             {

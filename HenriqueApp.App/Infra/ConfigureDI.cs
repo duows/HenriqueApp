@@ -83,10 +83,10 @@ namespace HenriqueApp.App.Infra
                     .ForMember(d => d.IdTime2, d => d.MapFrom(x => $"{x.Time2!.Id})"))
                     .ForMember(d => d.NomeTime2, d => d.MapFrom(x => $"{x.Time2!.Nome}"));
                 config.CreateMap<TempCamp, TempCampModel>()
-                    .ForMember(d => d.Temp, d => d.MapFrom(x => $"{x.Temp!}"))
+                    //.ForMember(d => d.Temp, d => d.MapFrom(x => $"{x.Temp!}"))
                     .ForMember(d => d.IdTemporada, d => d.MapFrom(x => $"{x.Temp!.Id}"))
                     .ForMember(d => d.AnoTemporada, d => d.MapFrom(x => $"{x.Temp!.Ano}"))
-                    .ForMember(d => d.Camp, d => d.MapFrom(x => $"{x.Camp!}"))
+                    //.ForMember(d => d.Camp, d => d.MapFrom(x => $"{x.Camp!}"))
                     .ForMember(d => d.IdCampeonato, d => d.MapFrom(x => $"{x.Camp!.Id}"))
                     .ForMember(d => d.NomeCampeonato, d => d.MapFrom(x => $"{x.Camp!.Nome}"));
                 config.CreateMap<Temporada, TemporadaModel>();

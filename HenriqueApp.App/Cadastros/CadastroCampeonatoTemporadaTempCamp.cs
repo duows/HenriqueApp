@@ -22,17 +22,20 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<TempCamp> _tempCampService;
         private readonly IBaseService<Campeonato> _campeonatoService;
         private readonly IBaseService<Temporada> _temporadaService;
+        private readonly IBaseService<Times> _timeService;
 
-        private List<TempCamp>? tempCamp;
+        private List<TempCampModel>? tempCamp;
 
         public static CadastroCampeonatoTemporadaTempCamp instance = null;
         public CadastroCampeonatoTemporadaTempCamp(IBaseService<TempCamp> tempCampService,
                                                    IBaseService<Campeonato> campeonatoService,
-                                                   IBaseService<Temporada> temporadaService)
+                                                   IBaseService<Temporada> temporadaService,
+                                                   IBaseService<Times> timeService)
         {
             _tempCampService = tempCampService;
             _campeonatoService = campeonatoService;
             _temporadaService = temporadaService;
+            _timeService = timeService;
             InitializeComponent();
             CarregarCombo();
             instance = this;
@@ -47,6 +50,14 @@ namespace HenriqueApp.App.Cadastros
             cboTemporada.ValueMember = "Id";
             cboTemporada.DisplayMember = "Ano";
             cboTemporada.DataSource = _temporadaService.Get<Temporada>().ToList();
+
+            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o time" };
+            var timesList = _timeService.Get<Times>().ToList();
+            timesList.Insert(0, defaultTimeUm);
+
+            cboCampeao.ValueMember = "Id";
+            cboCampeao.DisplayMember = "Nome";
+            cboCampeao.DataSource = timesList;
         }
 
         private void PreencheObjeto(TempCamp tempCamp)
@@ -103,8 +114,14 @@ namespace HenriqueApp.App.Cadastros
         
         protected override void CarregaGrid()
         {
-            tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" }).ToList();
+            tempCamp = _tempCampService.Get<TempCampModel>(new List<string> { "Camp", "Temp" }).ToList();
             dataGridViewConsulta.DataSource = tempCamp;
+            dataGridViewConsulta.Columns["IdTemporada"].Visible = false;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
+            dataGridViewConsulta.Columns["IdCampeonato"].Visible = false;
+            dataGridViewConsulta.Columns["AnoTemporada"].HeaderText = "Ano";
+            dataGridViewConsulta.Columns["NomeCampeonato"].HeaderText = "Campeonato";
+
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
@@ -112,8 +129,8 @@ namespace HenriqueApp.App.Cadastros
             if (linha != null)
             {
                 txtId.Text = linha.Cells["Id"].Value?.ToString();
-                cboCampeonato.SelectedValue = linha.Cells["Camp"].Value;
-                cboTemporada.SelectedValue = linha.Cells["Temp"].Value;
+                cboCampeonato.SelectedValue = linha.Cells["AnoTemporada"].Value;
+                cboTemporada.SelectedValue = linha.Cells["NomeCampeonato"].Value;
                 txtPremio.Text = linha.Cells["Premio"].Value?.ToString();
             }
         }

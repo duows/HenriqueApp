@@ -23,7 +23,7 @@ namespace HenriqueApp.App.Cadastros
         }
         private void CarregarCombo()
         {
-            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o mandante" };
+            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o time" };
             var timesList = _timeService.Get<Times>().ToList();
             timesList.Insert(0, defaultTimeUm);
 
@@ -59,10 +59,10 @@ namespace HenriqueApp.App.Cadastros
                 {
                     if (int.TryParse(txtId.Text, out var id))
                     {
-                        var jogador = _jogadorService.GetById<Jogadores>(id);
+                        _jogadorService.Delete(id);
+                        var jogador = new Jogadores();
                         PreencheObjeto(jogador);
-                        jogador.Time = _timeService.GetById<Times>(jogador.Time!.Id);
-                        jogador = _jogadorService.Update<Jogadores, Jogadores, JogadoresValidator>(jogador);
+                        _jogadorService.Add<Jogadores, Jogadores, JogadoresValidator>(jogador);
                     }
                 }
                 else
@@ -99,6 +99,7 @@ namespace HenriqueApp.App.Cadastros
             dataGridViewConsulta.DataSource = jogadores;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewConsulta.Columns["Id"].Visible = false;
+            dataGridViewConsulta.Columns["Time"].Visible = false;
             dataGridViewConsulta.Columns["IdTime"].Visible = false;
             dataGridViewConsulta.Columns["NomeTime"].HeaderText = "Time atual";
         }
@@ -109,16 +110,10 @@ namespace HenriqueApp.App.Cadastros
             txtNome.Text = linha?.Cells["Nome"].Value.ToString();
             txtIdade.Text = linha?.Cells["Idade"].Value.ToString();
             cboTime.SelectedValue = linha?.Cells["IdTime"].Value;
-            if (bool.Parse(linha?.Cells["Capitao"].Value.ToString()) == false)
-            {
-                rbtJogador.Checked = true;
-                rbtCapitao.Checked = false;
-            }
-            else
-            {
-                rbtCapitao.Checked = true;
-                rbtJogador.Checked = false;
-            }
+            bool isCapitao = linha != null && Convert.ToBoolean(linha.Cells["Capitao"].Value);
+
+            rbtCapitao.Checked = isCapitao;
+            rbtJogador.Checked = !isCapitao;
         }
     }
 }

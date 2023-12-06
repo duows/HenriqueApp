@@ -74,9 +74,10 @@ namespace HenriqueApp.App.Cadastros
                 {
                     if (int.TryParse(txtId.Text, out var id))
                     {
-                        var timeCampeonato = _timeCampeonatoService.GetById<TimeCampeonato>(id);
+                        _timeCampeonatoService.Delete(id);
+                        var timeCampeonato = new TimeCampeonato();
                         PreencheObjeto(timeCampeonato);
-                        timeCampeonato = _timeCampeonatoService.Update<TimeCampeonato, TimeCampeonato, TimeCampeonatoValidator>(timeCampeonato);
+                        _timeCampeonatoService.Add<TimeCampeonato, TimeCampeonato, TimeCampeonatoValidator>(timeCampeonato);
                     }
                 }
                 else
@@ -84,7 +85,6 @@ namespace HenriqueApp.App.Cadastros
                     var timeCampeonato = new TimeCampeonato();
                     PreencheObjeto(timeCampeonato);
                     _timeCampeonatoService.Add<TimeCampeonato, TimeCampeonato, TimeCampeonatoValidator>(timeCampeonato);
-
                 }
 
                 materialTabControl.SelectedIndex = 1;
@@ -143,7 +143,7 @@ namespace HenriqueApp.App.Cadastros
         }
         protected override void CarregaRegistro(DataGridViewRow? linha)
         {
-
+            cboTime.SelectedValue = linha?.Cells["NomeTime"].Value;
         }
 
     }

@@ -160,7 +160,7 @@
             ClientSize = new Size(505, 350);
             Location = new Point(0, 0);
             Name = "CadastroTimeCampeonato";
-            Text = "CadastroTimeCampeonato";
+            Text = "Cadastro de Time no Campeonato";
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             ResumeLayout(false);

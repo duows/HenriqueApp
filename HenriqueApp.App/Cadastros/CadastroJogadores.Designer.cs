@@ -215,7 +215,7 @@
             ClientSize = new Size(800, 364);
             Location = new Point(0, 0);
             Name = "CadastroJogadores";
-            Text = "CadastroJogadores";
+            Text = "Cadastro de Jogadores";
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             tabPageCadastro.PerformLayout();

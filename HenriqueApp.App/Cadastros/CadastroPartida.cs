@@ -205,10 +205,10 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            partida = _partidaService.Get<PartidaModel>(new List<string> { "Time1", "Time2", "TempCampId" }).ToList();
+            partida = _partidaService.Get<PartidaModel>(new List<string> { "Times", "TempCamp" }).ToList();
             dataGridViewConsulta.DataSource = partida;
-            dataGridViewConsulta.Columns["Id"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewConsulta.Columns["Id"].Visible = false;
+           // dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridViewConsulta.Columns["NomeTime"].HeaderText = "Time atual";
         }
     }
 }

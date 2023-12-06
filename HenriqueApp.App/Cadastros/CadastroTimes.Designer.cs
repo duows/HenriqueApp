@@ -116,7 +116,7 @@
             ClientSize = new Size(800, 213);
             Location = new Point(0, 0);
             Name = "CadastroTimes";
-            Text = "CadastroTimes";
+            Text = "Cadastro de Times";
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
             ResumeLayout(false);
