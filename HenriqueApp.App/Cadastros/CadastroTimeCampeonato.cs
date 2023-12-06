@@ -1,4 +1,5 @@
 ﻿using HenriqueApp.App.Base;
+using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
@@ -22,7 +23,7 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<Temporada> _temporadaService;
         private readonly IBaseService<TempCamp> _tempCampService;
 
-        private List<TimeCampeonato>? timeCampeonato;
+        private List<TimeCampeonatoModel>? timeCampeonato;
         public CadastroTimeCampeonato(IBaseService<TimeCampeonato> timeCampeonatoService,
                                       IBaseService<Times> vendaService,
                                       IBaseService<Campeonato> campeonatoService,
@@ -46,10 +47,6 @@ namespace HenriqueApp.App.Cadastros
             cboCamp.ValueMember = "Id";
             cboCamp.DisplayMember = "Nome";
             cboCamp.DataSource = _campeonatoService.Get<Campeonato>().ToList();
-
-            cboTemp.ValueMember = "Id";
-            cboTemp.DisplayMember = "Ano";
-            cboTemp.DataSource = _temporadaService.Get<Temporada>().ToList();
         }
 
         private void PreencheObjeto(TimeCampeonato timeCampeonato)
@@ -61,6 +58,7 @@ namespace HenriqueApp.App.Cadastros
             timeCampeonato.Pontos = 0;
             timeCampeonato.Vitoria = 0;
             timeCampeonato.Derrota = 0;
+            timeCampeonato.Empate = 0;
             timeCampeonato.Posicao = 0;
             timeCampeonato.Temp = tempCamp;
             timeCampeonato.Time = (Times)cboTime.SelectedItem;
@@ -109,19 +107,40 @@ namespace HenriqueApp.App.Cadastros
             }
         }
 
+        private void cboCamp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var camp = (Campeonato)cboCamp.SelectedItem;
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" })
+                    .Where(x => x.Camp!.Id == camp.Id).ToList();
+
+            var temporadas = new List<Temporada>();
+
+            foreach (var temp in tempCamp)
+            {
+                temporadas.Add(temp.Temp!);
+            }
+
+            cboTemp.ValueMember = "Id";
+            cboTemp.DisplayMember = "Ano";
+            cboTemp.DataSource = temporadas;
+        }
         protected override void CarregaGrid()
         {
-            /*timeCampeonato = _timeCampeonatoService.Get<TimeCampeonato>().ToList();
+            timeCampeonato = _timeCampeonatoService.Get<TimeCampeonatoModel>(new List<string> { "Time" }).ToList();
             dataGridViewConsulta.DataSource = timeCampeonato;
-            dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;*/
+            dataGridViewConsulta.Columns["Id"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
+            dataGridViewConsulta.Columns["Time"].Visible = false;
+            dataGridViewConsulta.Columns["IdTime"].Visible = false;
+            dataGridViewConsulta.Columns["Temp"].Visible = false;
+            dataGridViewConsulta.Columns["IdTempCamp"].Visible = false;
+            dataGridViewConsulta.Columns["Golpro"].HeaderText = "Gols marcados";
+            dataGridViewConsulta.Columns["NomeTime"].HeaderText = "Time";
+            dataGridViewConsulta.Columns["Golcon"].HeaderText = "Gols sofridos";
         }
         protected override void CarregaRegistro(DataGridViewRow? linha)
         {
-            /*txtId.Text = linha?.Cells["Id"].Value.ToString();
-            txtNome.Text = linha?.Cells["Nome"].Value.ToString();
-            txtEndereco.Text = linha?.Cells["Endereco"].Value.ToString();
-            txtBairro.Text = linha?.Cells["Bairro"].Value.ToString();
-            cboCidade.SelectedValue = linha?.Cells["IdCidade"].Value;*/
+
         }
 
     }

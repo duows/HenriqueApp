@@ -25,6 +25,8 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.Property(prop => prop.Derrota);
                 
+            builder.Property(prop => prop.Empate);
+
             builder.Property(prop => prop.Golpro);
 
             builder.Property(prop => prop.Golcon);

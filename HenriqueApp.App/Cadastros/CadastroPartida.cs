@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace HenriqueApp.App.Cadastros
 {
@@ -97,13 +98,59 @@ namespace HenriqueApp.App.Cadastros
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
         }
 
-        private void AtualizaTime(Times time)
+        private void AtualizaTime(Times timeUm, Times timeDois)
         {
             var camp = (Campeonato)cboCamp.SelectedItem;
             var temp = (Temporada)cboTemp.SelectedItem;
-            var tempCamp = _tempCampService.Get<TempCamp>(new List<string>() { "Camp", "Temp" }).Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string>() { "Camp", "Temp" })
+                .Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
 
+            var timeUmCamp = _timeCampeonatoService.Get<TimeCampeonato>(new List<string>() { "Time", "Temp" })
+                .Where(x => x.Time!.Id == timeUm.Id && x.Temp!.Id == tempCamp!.Id).FirstOrDefault();
 
+            var timeDoisCamp = _timeCampeonatoService.Get<TimeCampeonato>(new List<string>() { "Time", "Temp" })
+                .Where(x => x.Time!.Id == timeDois.Id && x.Temp!.Id == tempCamp!.Id).FirstOrDefault();
+
+            if (int.Parse(txtGolUm.Text) > int.Parse(txtGolDois.Text))
+            {
+                timeUmCamp!.Golpro += int.Parse(txtGolUm.Text);
+                timeUmCamp.Golcon += int.Parse(txtGolDois.Text);
+                timeUmCamp.Pontos += 3;
+                timeUmCamp.Vitoria += 1;
+
+                timeDoisCamp!.Golpro += int.Parse(txtGolDois.Text);
+                timeDoisCamp.Golcon += int.Parse(txtGolUm.Text);
+                timeDoisCamp.Derrota += 1;
+            } 
+            else 
+            { 
+                if (int.Parse(txtGolUm.Text) < int.Parse(txtGolDois.Text))
+                {
+                    timeUmCamp!.Golpro += int.Parse(txtGolUm.Text);
+                    timeUmCamp.Golcon += int.Parse(txtGolDois.Text);
+                    timeUmCamp.Derrota += 1;
+
+                    timeDoisCamp!.Golpro += int.Parse(txtGolDois.Text);
+                    timeDoisCamp.Golcon += int.Parse(txtGolUm.Text);
+                    timeDoisCamp.Vitoria += 1;
+                    timeDoisCamp.Pontos += 3;
+                } 
+                else
+                {
+                    timeUmCamp!.Golpro += int.Parse(txtGolUm.Text);
+                    timeUmCamp.Golcon += int.Parse(txtGolDois.Text);
+                    timeUmCamp.Pontos += 1;
+                    timeUmCamp.Empate += 1;
+
+                    timeDoisCamp!.Golpro += int.Parse(txtGolDois.Text);
+                    timeDoisCamp.Golcon += int.Parse(txtGolUm.Text);
+                    timeDoisCamp.Empate += 1;
+                    timeDoisCamp.Pontos += 1;
+                }
+
+            }
+            _timeCampeonatoService.Update<TimeCampeonato, TimeCampeonato, TimeCampeonatoValidator>(timeUmCamp);
+            _timeCampeonatoService.Update<TimeCampeonato, TimeCampeonato, TimeCampeonatoValidator>(timeDoisCamp);
         }
 
         protected override void Salvar()
@@ -118,6 +165,7 @@ namespace HenriqueApp.App.Cadastros
                         var partida = _partidaService.GetById<Partida>(id);
                         PreencheObjeto(partida);
                         partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
+                        AtualizaTime(partida.Time1!, partida.Time2!);
                     }
                 }
                 else
@@ -125,6 +173,7 @@ namespace HenriqueApp.App.Cadastros
                     var partida = new Partida();
                     PreencheObjeto(partida);
                     _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
+                    AtualizaTime(partida.Time1!, partida.Time2!);
                 }
 
                 MessageBox.Show("Partida salva com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);

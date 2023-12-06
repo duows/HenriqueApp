@@ -97,6 +97,7 @@
             cboCamp.Size = new Size(417, 49);
             cboCamp.StartIndex = 0;
             cboCamp.TabIndex = 12;
+            cboCamp.SelectedIndexChanged += cboCamp_SelectedIndexChanged;
             // 
             // txtId
             // 
