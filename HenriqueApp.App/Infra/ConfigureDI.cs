@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HenriqueApp.App.Cadastros;
 using HenriqueApp.App.Models;
+using HenriqueApp.App.Outros;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Repository.Context;
@@ -60,6 +61,7 @@ namespace HenriqueApp.App.Infra
             Services.AddScoped<IBaseService<Times>, BaseService<Times>>();
 
             // Formulários
+            Services.AddTransient<TabelaClassificacao, TabelaClassificacao>();
             Services.AddTransient<CadastroCampeonato, CadastroCampeonato>();
             Services.AddTransient<CadastroTemporada, CadastroTemporada>();
             Services.AddTransient<CadastroJogadores, CadastroJogadores>();

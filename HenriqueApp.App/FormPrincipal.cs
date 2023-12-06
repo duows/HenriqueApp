@@ -13,6 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HenriqueApp.App.Outros;
+using System.Media;
+using System.Windows.Media;
 
 namespace HenriqueApp.App
 {
@@ -47,7 +50,7 @@ namespace HenriqueApp.App
 
         private void campeonatoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Exibeformulario<CadastroCampeonatoTemporadaTempCamp>();
+
         }
 
         private void partidaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +66,33 @@ namespace HenriqueApp.App
         private void timeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Exibeformulario<CadastroTimeCampeonato>();
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+            string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (2)\\HenriqueApp\\HenriqueApp.App\\Resources\\musica.wav";
+
+            if (System.IO.File.Exists(caminhoMusica))
+            {
+                using (SoundPlayer player = new SoundPlayer(caminhoMusica))
+                {
+                    player.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Arquivo de música não encontrado!");
+            }
+        }
+
+        private void novoCampeonatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exibeformulario<CadastroCampeonatoTemporadaTempCamp>();
+        }
+
+        private void classificaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exibeformulario<TabelaClassificacao>();
         }
 
         private void Exibeformulario<TFormlario>() where TFormlario : Form

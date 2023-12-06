@@ -62,21 +62,25 @@ namespace HenriqueApp.App.Cadastros
         }
         private void CarregaCombo()
         {
+            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o mandante" };
+            var timesList = _timesService.Get<Times>().ToList();
+            timesList.Insert(0, defaultTimeUm);
+
             cboTimeUm.ValueMember = "Id";
             cboTimeUm.DisplayMember = "Nome";
-            cboTimeUm.DataSource = _timesService.Get<Times>().ToList();
+            cboTimeUm.DataSource = timesList;
+
+            var defaultTimeDois = new Times { Id = 0, Nome = "Escolha o visitante" };
+            timesList = _timesService.Get<Times>().ToList();
+            timesList.Insert(0, defaultTimeDois);
 
             cboTimeDois.ValueMember = "Id";
             cboTimeDois.DisplayMember = "Nome";
-            cboTimeDois.DataSource = _timesService.Get<Times>().ToList();
+            cboTimeDois.DataSource = timesList;
 
             cboCamp.ValueMember = "Id";
             cboCamp.DisplayMember = "Nome";
             cboCamp.DataSource = _campeonatoService.Get<Campeonato>().ToList();
-
-            cboTemp.ValueMember = "Id";
-            cboTemp.DisplayMember = "Ano";
-            cboTemp.DataSource = _temporadaService.Get<Temporada>().ToList();
 
         }
 
@@ -86,12 +90,20 @@ namespace HenriqueApp.App.Cadastros
             var temp = (Temporada)cboTemp.SelectedItem;
             var tempCamp = _tempCampService.Get<TempCamp>(new List<string>() { "Camp", "Temp" }).Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
 
-
             partida.Time1 = (Times)cboTimeUm.SelectedItem;
             partida.Time2 = (Times)cboTimeDois.SelectedItem;
             partida.TempCampId = tempCamp;
             partida.Gol1 = int.TryParse(txtGolUm.Text, out var gol1) ? gol1 : 0;
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
+        }
+
+        private void AtualizaTime(Times time)
+        {
+            var camp = (Campeonato)cboCamp.SelectedItem;
+            var temp = (Temporada)cboTemp.SelectedItem;
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string>() { "Camp", "Temp" }).Where(x => x.Camp!.Id == camp.Id && x.Temp!.Id == temp.Id).FirstOrDefault();
+
+
         }
 
         protected override void Salvar()
@@ -124,5 +136,22 @@ namespace HenriqueApp.App.Cadastros
             }
         }
 
+        private void cboCamp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var camp = (Campeonato)cboCamp.SelectedItem;
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" })
+                    .Where(x => x.Camp!.Id == camp.Id).ToList();
+
+            var temporadas = new List<Temporada>();
+
+            foreach (var temp in tempCamp)
+            {
+                temporadas.Add(temp.Temp!);
+            }
+
+            cboTemp.ValueMember = "Id";
+            cboTemp.DisplayMember = "Ano";
+            cboTemp.DataSource = temporadas;
+        }
     }
 }

@@ -194,6 +194,7 @@ namespace HenriqueApp.App.Cadastros
             cboCamp.Size = new Size(773, 49);
             cboCamp.StartIndex = 0;
             cboCamp.TabIndex = 18;
+            cboCamp.SelectedIndexChanged += cboCamp_SelectedIndexChanged;
             // 
             // txtId
             // 

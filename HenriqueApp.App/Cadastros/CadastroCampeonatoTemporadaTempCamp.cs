@@ -1,5 +1,6 @@
 ﻿using HenriqueApp.App.Base;
 using HenriqueApp.App.Infra;
+using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
@@ -22,7 +23,9 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<Campeonato> _campeonatoService;
         private readonly IBaseService<Temporada> _temporadaService;
 
-        private List<TempCamp>? grupos;
+        private List<TempCamp>? tempCamp;
+
+        public static CadastroCampeonatoTemporadaTempCamp instance = null;
         public CadastroCampeonatoTemporadaTempCamp(IBaseService<TempCamp> tempCampService,
                                                    IBaseService<Campeonato> campeonatoService,
                                                    IBaseService<Temporada> temporadaService)
@@ -32,9 +35,10 @@ namespace HenriqueApp.App.Cadastros
             _temporadaService = temporadaService;
             InitializeComponent();
             CarregarCombo();
+            instance = this;
         }
 
-        private void CarregarCombo()
+        public void CarregarCombo()
         {
             cboCampeonato.ValueMember = "Id";
             cboCampeonato.DisplayMember = "Nome";
@@ -96,19 +100,24 @@ namespace HenriqueApp.App.Cadastros
                 MessageBox.Show(ex.Message, @"Henrique App", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        /*
+        
         protected override void CarregaGrid()
         {
             tempCamp = _tempCampService.Get<TempCamp>().ToList();
             dataGridViewConsulta.DataSource = tempCamp;
-            dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
-        
+
         protected override void CarregaRegistro(DataGridViewRow? linha)
         {
-            txtId.Text = linha?.Cells["Id"].Value.ToString();
-            txtNome.Text = linha?.Cells["Nome"].Value.ToString();
-        }*/
+            if (linha != null)
+            {
+                txtId.Text = linha.Cells["Id"].Value?.ToString();
+                cboCampeonato.SelectedValue = linha.Cells["Camp"].Value;
+                cboTemporada.SelectedValue = linha.Cells["Temp"].Value;
+                txtPremio.Text = linha.Cells["Premio"].Value?.ToString();
+            }
+        }
+
         private void tabPageCadastro_Click(object sender, EventArgs e)
         {
 

@@ -52,6 +52,10 @@ namespace HenriqueApp.App.Cadastros
                 }
 
                 materialTabControl.SelectedIndex = 1;
+                if (CadastroCampeonatoTemporadaTempCamp.instance != null)
+                {
+                    CadastroCampeonatoTemporadaTempCamp.instance.CarregarCombo();
+                }
             }
             catch (Exception ex)
             {
