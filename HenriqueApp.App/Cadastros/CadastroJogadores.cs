@@ -3,15 +3,6 @@ using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace HenriqueApp.App.Cadastros
 {
@@ -52,7 +43,12 @@ namespace HenriqueApp.App.Cadastros
             {
                 jogador.Capitao = false;
             }
-            jogador.Time = (Times)cboTime.SelectedItem;
+            if (int.TryParse(cboTime.SelectedValue.ToString(), out var IdTime))
+            {
+                var time = _timeService.GetById<Times>(IdTime);
+                jogador.Time = time;
+            }
+            //jogador.Time = (Times)cboTime.SelectedValue;
         }
 
         protected override void Salvar()
@@ -65,6 +61,7 @@ namespace HenriqueApp.App.Cadastros
                     {
                         var jogador = _jogadorService.GetById<Jogadores>(id);
                         PreencheObjeto(jogador);
+                        jogador.Time = _timeService.GetById<Times>(jogador.Time!.Id);
                         jogador = _jogadorService.Update<Jogadores, Jogadores, JogadoresValidator>(jogador);
                     }
                 }
@@ -102,6 +99,8 @@ namespace HenriqueApp.App.Cadastros
             dataGridViewConsulta.DataSource = jogadores;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewConsulta.Columns["Id"].Visible = false;
+            dataGridViewConsulta.Columns["IdTime"].Visible = false;
+            dataGridViewConsulta.Columns["NomeTime"].HeaderText = "Time atual";
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
@@ -109,22 +108,16 @@ namespace HenriqueApp.App.Cadastros
             txtId.Text = linha?.Cells["Id"].Value.ToString();
             txtNome.Text = linha?.Cells["Nome"].Value.ToString();
             txtIdade.Text = linha?.Cells["Idade"].Value.ToString();
-        }
-
-        private void materialRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton clickedRadioButton = (RadioButton)sender;
-
-            if (clickedRadioButton.Checked)
+            cboTime.SelectedValue = linha?.Cells["IdTime"].Value;
+            if (bool.Parse(linha?.Cells["Capitao"].Value.ToString()) == false)
             {
-                if (clickedRadioButton == rbtCapitao)
-                {
-                    rbtJogador.Checked = false;
-                }
-                else if (clickedRadioButton == rbtJogador)
-                {
-                    rbtCapitao.Checked = false;
-                }
+                rbtJogador.Checked = true;
+                rbtCapitao.Checked = false;
+            }
+            else
+            {
+                rbtCapitao.Checked = true;
+                rbtJogador.Checked = false;
             }
         }
     }

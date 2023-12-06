@@ -126,6 +126,9 @@ namespace HenriqueApp.App.Cadastros
         }
         protected override void CarregaGrid()
         {
+            var tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" }).ToList();
+
+
             timeCampeonato = _timeCampeonatoService.Get<TimeCampeonatoModel>(new List<string> { "Time" }).ToList();
             dataGridViewConsulta.DataSource = timeCampeonato;
             dataGridViewConsulta.Columns["Id"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

@@ -26,7 +26,7 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<TempCamp> _tempCampService;
         private readonly IBaseService<TimeCampeonato> _timeCampeonatoService;
 
-        private List<Partida>? partida;
+        private List<PartidaModel>? partida;
 
         public CadastroPartida(IBaseService<Partida> partidaService,
                                IBaseService<Times> timesService,
@@ -121,9 +121,9 @@ namespace HenriqueApp.App.Cadastros
                 timeDoisCamp!.Golpro += int.Parse(txtGolDois.Text);
                 timeDoisCamp.Golcon += int.Parse(txtGolUm.Text);
                 timeDoisCamp.Derrota += 1;
-            } 
-            else 
-            { 
+            }
+            else
+            {
                 if (int.Parse(txtGolUm.Text) < int.Parse(txtGolDois.Text))
                 {
                     timeUmCamp!.Golpro += int.Parse(txtGolUm.Text);
@@ -134,7 +134,7 @@ namespace HenriqueApp.App.Cadastros
                     timeDoisCamp.Golcon += int.Parse(txtGolUm.Text);
                     timeDoisCamp.Vitoria += 1;
                     timeDoisCamp.Pontos += 3;
-                } 
+                }
                 else
                 {
                     timeUmCamp!.Golpro += int.Parse(txtGolUm.Text);
@@ -201,6 +201,14 @@ namespace HenriqueApp.App.Cadastros
             cboTemp.ValueMember = "Id";
             cboTemp.DisplayMember = "Ano";
             cboTemp.DataSource = temporadas;
+        }
+
+        protected override void CarregaGrid()
+        {
+            partida = _partidaService.Get<PartidaModel>(new List<string> { "Time1", "Time2", "TempCampId" }).ToList();
+            dataGridViewConsulta.DataSource = partida;
+            dataGridViewConsulta.Columns["Id"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
         }
     }
 }

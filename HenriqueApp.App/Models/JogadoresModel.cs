@@ -12,7 +12,7 @@ namespace HenriqueApp.App.Models
         public int Id { get; set; }
         public string? Nome { get; set; }
         public int? Idade { get; set; }
-        //public Times? Time { get; set; }
+        public Times? Time { get; set; }
         public int IdTime { get; set; }
         public string? NomeTime { get; set; }
         public bool? Capitao { get; set; }

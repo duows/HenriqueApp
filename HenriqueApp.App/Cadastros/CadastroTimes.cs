@@ -1,4 +1,5 @@
 ﻿using HenriqueApp.App.Base;
+using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
@@ -18,7 +19,7 @@ namespace HenriqueApp.App.Cadastros
     {
         private readonly IBaseService<Times> _timeService;
 
-        private List<Times>? times;
+        private List<TimesModel>? times;
 
         public CadastroTimes(IBaseService<Times> timeService)
         {
@@ -74,7 +75,7 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            times = _timeService.Get<Times>().ToList();
+            times = _timeService.Get<TimesModel>().ToList();
             dataGridViewConsulta.DataSource = times;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewConsulta.Columns["Id"].Visible = false;

@@ -103,7 +103,7 @@ namespace HenriqueApp.App.Cadastros
         
         protected override void CarregaGrid()
         {
-            tempCamp = _tempCampService.Get<TempCamp>().ToList();
+            tempCamp = _tempCampService.Get<TempCamp>(new List<string> { "Camp", "Temp" }).ToList();
             dataGridViewConsulta.DataSource = tempCamp;
         }
 

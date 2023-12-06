@@ -105,7 +105,6 @@
             rbtCapitao.Text = "Capitão";
             rbtCapitao.UseAccentColor = false;
             rbtCapitao.UseVisualStyleBackColor = true;
-            rbtCapitao.CheckedChanged += materialRadioButton_CheckedChanged;
             // 
             // txtIdade
             // 
@@ -154,7 +153,6 @@
             rbtJogador.Text = "Jogador";
             rbtJogador.UseAccentColor = false;
             rbtJogador.UseVisualStyleBackColor = true;
-            rbtJogador.CheckedChanged += materialRadioButton_CheckedChanged;
             // 
             // cboTime
             // 

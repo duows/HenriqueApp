@@ -80,6 +80,7 @@ namespace HenriqueApp.App.Cadastros
             campeonato = _campeonatoService.Get<CampeonatoModel>().ToList();
             dataGridViewConsulta.DataSource = campeonato;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)

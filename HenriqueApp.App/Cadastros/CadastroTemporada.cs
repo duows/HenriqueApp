@@ -80,6 +80,7 @@ namespace HenriqueApp.App.Cadastros
             temporada = _temporadaService.Get<Temporada>().ToList();
             dataGridViewConsulta.DataSource = temporada;
             dataGridViewConsulta.Columns["Ano"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)

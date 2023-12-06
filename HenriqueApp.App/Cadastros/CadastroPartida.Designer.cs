@@ -30,6 +30,7 @@ namespace HenriqueApp.App.Cadastros
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroPartida));
             txtGolUm = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             txtGolDois = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboTimeUm = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -37,8 +38,10 @@ namespace HenriqueApp.App.Cadastros
             cboCamp = new ReaLTaiizor.Controls.MaterialComboBox();
             txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             cboTemp = new ReaLTaiizor.Controls.MaterialComboBox();
+            pictureBox1 = new PictureBox();
             materialTabControl.SuspendLayout();
             tabPageCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // materialTabControl
@@ -47,6 +50,7 @@ namespace HenriqueApp.App.Cadastros
             // 
             // tabPageCadastro
             // 
+            tabPageCadastro.Controls.Add(pictureBox1);
             tabPageCadastro.Controls.Add(cboTemp);
             tabPageCadastro.Controls.Add(txtId);
             tabPageCadastro.Controls.Add(cboCamp);
@@ -62,6 +66,7 @@ namespace HenriqueApp.App.Cadastros
             tabPageCadastro.Controls.SetChildIndex(cboCamp, 0);
             tabPageCadastro.Controls.SetChildIndex(txtId, 0);
             tabPageCadastro.Controls.SetChildIndex(cboTemp, 0);
+            tabPageCadastro.Controls.SetChildIndex(pictureBox1, 0);
             // 
             // txtGolUm
             // 
@@ -250,6 +255,16 @@ namespace HenriqueApp.App.Cadastros
             cboTemp.StartIndex = 0;
             cboTemp.TabIndex = 22;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(317, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(141, 102);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
             // CadastroPartida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,6 +276,7 @@ namespace HenriqueApp.App.Cadastros
             Load += CadastroPartida_Load;
             materialTabControl.ResumeLayout(false);
             tabPageCadastro.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -272,5 +288,6 @@ namespace HenriqueApp.App.Cadastros
         private ReaLTaiizor.Controls.MaterialComboBox cboTimeUm;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
         private ReaLTaiizor.Controls.MaterialComboBox cboTemp;
+        private PictureBox pictureBox1;
     }
 }
