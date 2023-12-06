@@ -31,18 +31,14 @@ namespace HenriqueApp.Teste
             time.Nome = "São Paulo";
 
             jogador.Nome = "Luciano";
-            jogador.Gols = 75;
             jogador.Idade = 31;
-            jogador.Assist = 25;
-            jogador.Capitao = 0;
+            jogador.Capitao = false;
             jogador.Time = time;
 
             Console.WriteLine(JsonSerializer.Serialize(jogador));
             Assert.AreEqual(jogador.Nome, "Luciano");
-            Assert.AreEqual(jogador.Gols, 75);
             Assert.AreEqual(jogador.Idade, 31);
-            Assert.AreEqual(jogador.Assist, 25);
-            Assert.AreEqual(jogador.Capitao, 0);
+            Assert.AreEqual(jogador.Capitao, false);
             Assert.AreEqual(jogador.Time.Nome, time.Nome);
 
         }

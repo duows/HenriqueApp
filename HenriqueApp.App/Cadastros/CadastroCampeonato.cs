@@ -1,4 +1,5 @@
 ﻿using HenriqueApp.App.Base;
+using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
@@ -18,7 +19,7 @@ namespace HenriqueApp.App.Cadastros
     {
         private readonly IBaseService<Campeonato> _campeonatoService;
 
-        private List<Campeonato>? campeonato;
+        private List<CampeonatoModel>? campeonato;
         public CadastroCampeonato(IBaseService<Campeonato> campeonatoService)
         {
             _campeonatoService = campeonatoService;
@@ -76,7 +77,7 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            campeonato = _campeonatoService.Get<Campeonato>().ToList();
+            campeonato = _campeonatoService.Get<CampeonatoModel>().ToList();
             dataGridViewConsulta.DataSource = campeonato;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
