@@ -14,20 +14,16 @@ namespace HenriqueApp.Domain.Entities
 
         }
 
-        public Jogadores(int id, string? nome, int? idade, int? gols, int? assist, int? camisa, Times? time, int? capitao) : base(id)
+        public Jogadores(int id, string? nome, int? idade, int? camisa, Times? time, bool? capitao) : base(id)
         {
             Nome = nome;
             Idade = idade;
-            Gols = gols;
-            Assist = assist;
             Time = time;
             Capitao = capitao;
         }
         public string? Nome { get; set; }
         public int? Idade { get; set; }
-        public int? Gols { get; set; }
-        public int? Assist { get; set; }
         public Times? Time { get; set; }
-        public int? Capitao { get; set; }
+        public bool? Capitao { get; set; }
     }
 }

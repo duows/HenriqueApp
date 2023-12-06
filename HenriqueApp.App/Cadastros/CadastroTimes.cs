@@ -77,6 +77,7 @@ namespace HenriqueApp.App.Cadastros
             times = _timeService.Get<Times>().ToList();
             dataGridViewConsulta.DataSource = times;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)

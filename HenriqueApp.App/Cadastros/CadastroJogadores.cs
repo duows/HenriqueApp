@@ -1,4 +1,5 @@
 ﻿using HenriqueApp.App.Base;
+using HenriqueApp.App.Models;
 using HenriqueApp.Domain.Base;
 using HenriqueApp.Domain.Entities;
 using HenriqueApp.Service.Validators;
@@ -20,7 +21,7 @@ namespace HenriqueApp.App.Cadastros
         private readonly IBaseService<Jogadores> _jogadorService;
         private readonly IBaseService<Times> _timeService;
 
-        private List<Jogadores>? jogadores;
+        private List<JogadoresModel>? jogadores;
 
         public CadastroJogadores(IBaseService<Jogadores> jogadorService, IBaseService<Times> timeService)
         {
@@ -31,9 +32,13 @@ namespace HenriqueApp.App.Cadastros
         }
         private void CarregarCombo()
         {
+            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o mandante" };
+            var timesList = _timeService.Get<Times>().ToList();
+            timesList.Insert(0, defaultTimeUm);
+
             cboTime.ValueMember = "Id";
             cboTime.DisplayMember = "Nome";
-            cboTime.DataSource = _timeService.Get<Times>().ToList();
+            cboTime.DataSource = timesList;
         }
         private void PreencheObjeto(Jogadores jogador)
         {
@@ -41,15 +46,13 @@ namespace HenriqueApp.App.Cadastros
             jogador.Idade = Convert.ToInt32(txtIdade.Text);
             if (rbtCapitao.Checked)
             {
-                jogador.Capitao = 1;
+                jogador.Capitao = true;
             }
             else
             {
-                jogador.Capitao = 0;
+                jogador.Capitao = false;
             }
             jogador.Time = (Times)cboTime.SelectedItem;
-            jogador.Gols = 0;
-            jogador.Assist = 0;
         }
 
         protected override void Salvar()
@@ -95,9 +98,10 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            jogadores = _jogadorService.Get<Jogadores>().ToList();
+            jogadores = _jogadorService.Get<JogadoresModel>(new List<string> { "Time" }).ToList();
             dataGridViewConsulta.DataSource = jogadores;
             dataGridViewConsulta.Columns["Nome"]!.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewConsulta.Columns["Id"].Visible = false;
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)

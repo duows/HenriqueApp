@@ -23,10 +23,6 @@ namespace HenriqueApp.Repository.Mapping
 
             builder.Property(prop => prop.Idade);
 
-            builder.Property(prop => prop.Gols);
-
-            builder.Property(prop => prop.Assist);
-
             builder.Property(prop => prop.Capitao);
 
             builder.HasOne(prop => prop.Time);
