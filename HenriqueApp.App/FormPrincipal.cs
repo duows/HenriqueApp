@@ -76,7 +76,7 @@ namespace HenriqueApp.App
             {
                 using (SoundPlayer player = new SoundPlayer(caminhoMusica))
                 {
-                    // player.Play();
+                    player.Play();
                 }
             }
             else
