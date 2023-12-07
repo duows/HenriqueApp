@@ -62,6 +62,7 @@ namespace HenriqueApp.App.Infra
 
             // Formulários
             Services.AddTransient<TabelaClassificacao, TabelaClassificacao>();
+            Services.AddTransient<SaoPaulo, SaoPaulo>();
             Services.AddTransient<CadastroCampeonato, CadastroCampeonato>();
             Services.AddTransient<CadastroTemporada, CadastroTemporada>();
             Services.AddTransient<CadastroJogadores, CadastroJogadores>();
@@ -79,8 +80,6 @@ namespace HenriqueApp.App.Infra
                     .ForMember(d => d.NomeTime, d => d.MapFrom(x => $"{x.Time!.Nome}"));
                 config.CreateMap<Partida, PartidaModel>()
                     .ForMember(d => d.IdTempCamp, d => d.MapFrom(x => $"{x.TempCampId!.Id}"))
-                    .ForMember(d => d.NomeCamp, d => d.MapFrom(x => $"{x.TempCampId!.Camp!.Nome}"))
-                    .ForMember(d => d.AnoTemporada, d => d.MapFrom(x => $"{x.TempCampId!.Temp!.Ano}"))
                     .ForMember(d => d.IdTime1, d => d.MapFrom(x => $"{x.Time1!.Id}"))
                     .ForMember(d => d.NomeTime1, d => d.MapFrom(x => $"{x.Time1!.Nome}"))
                     .ForMember(d => d.IdTime2, d => d.MapFrom(x => $"{x.Time2!.Id})"))

@@ -21,9 +21,11 @@ namespace HenriqueApp.App
 {
     public partial class FormPrincipal : MaterialForm
     {
+        public static FormPrincipal instance = null;
         public FormPrincipal()
         {
             InitializeComponent();
+            instance = this;
         }
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -68,6 +70,23 @@ namespace HenriqueApp.App
             Exibeformulario<CadastroTimeCampeonato>();
         }
 
+        public void tocaMusica()
+        {
+            string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (2)\\HenriqueApp\\HenriqueApp.App\\Resources\\musica.wav";
+
+            if (System.IO.File.Exists(caminhoMusica))
+            {
+                using (SoundPlayer player = new SoundPlayer(caminhoMusica))
+                {
+                    player.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Arquivo de música não encontrado!");
+            }
+        }
+
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (2)\\HenriqueApp\\HenriqueApp.App\\Resources\\musica.wav";
@@ -93,6 +112,26 @@ namespace HenriqueApp.App
         private void classificaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Exibeformulario<TabelaClassificacao>();
+        }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSpfc_Click(object sender, EventArgs e)
+        {
+            Exibeformulario<SaoPaulo>();
+        }
+
+        private void aJudaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sãoPauloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Exibeformulario<SaoPaulo>();
         }
 
         private void Exibeformulario<TFormlario>() where TFormlario : Form

@@ -39,12 +39,14 @@
             classificaçãoToolStripMenuItem = new ToolStripMenuItem();
             partidaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
+            aJudaToolStripMenuItem = new ToolStripMenuItem();
+            sãoPauloToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, sairToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, aJudaToolStripMenuItem, sairToolStripMenuItem });
             menuStrip1.Location = new Point(3, 64);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(794, 24);
@@ -115,6 +117,21 @@
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click_1;
             // 
+            // aJudaToolStripMenuItem
+            // 
+            aJudaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sãoPauloToolStripMenuItem });
+            aJudaToolStripMenuItem.Name = "aJudaToolStripMenuItem";
+            aJudaToolStripMenuItem.Size = new Size(50, 20);
+            aJudaToolStripMenuItem.Text = "Ajuda";
+            aJudaToolStripMenuItem.Click += aJudaToolStripMenuItem_Click_1;
+            // 
+            // sãoPauloToolStripMenuItem
+            // 
+            sãoPauloToolStripMenuItem.Name = "sãoPauloToolStripMenuItem";
+            sãoPauloToolStripMenuItem.Size = new Size(180, 22);
+            sãoPauloToolStripMenuItem.Text = "São paulo";
+            sãoPauloToolStripMenuItem.Click += sãoPauloToolStripMenuItem_Click;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -149,5 +166,7 @@
         private ToolStripMenuItem timeToolStripMenuItem1;
         private ToolStripMenuItem novoCampeonatoToolStripMenuItem;
         private ToolStripMenuItem classificaçãoToolStripMenuItem;
+        private ToolStripMenuItem aJudaToolStripMenuItem;
+        private ToolStripMenuItem sãoPauloToolStripMenuItem;
     }
 }
