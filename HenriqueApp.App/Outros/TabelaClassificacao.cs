@@ -64,6 +64,7 @@ namespace HenriqueApp.App.Outros
                 dataGridView1.Columns["Time"].Visible = false;
                 dataGridView1.Columns["IdTime"].Visible = false;
                 dataGridView1.Columns["Temp"].Visible = false;
+                dataGridView1.Columns["Posicao"].Visible = false;
                 dataGridView1.Columns["IdTempCamp"].Visible = false;
                 dataGridView1.Columns["Golpro"].HeaderText = "Gols marcados";
                 dataGridView1.Columns["NomeTime"].HeaderText = "Time";
