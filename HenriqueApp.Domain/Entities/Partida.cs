@@ -24,8 +24,8 @@ namespace HenriqueApp.Domain.Entities
         }
         public int? Gol1 { get; set; }
         public int? Gol2 { get; set; }
-        public Times? Time1 { get; set; }
-        public Times? Time2 { get; set; }
+        public virtual Times? Time1 { get; set; }
+        public virtual Times? Time2 { get; set; }
         public TempCamp? TempCampId { get; set; }
     }
 }

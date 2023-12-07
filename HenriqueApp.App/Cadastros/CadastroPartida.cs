@@ -19,6 +19,7 @@ namespace HenriqueApp.App.Cadastros
 {
     public partial class CadastroPartida : CadastroBase
     {
+        bool delete = false;
         private readonly IBaseService<Partida> _partidaService;
         private readonly IBaseService<Times> _timesService;
         private readonly IBaseService<Campeonato> _campeonatoService;
@@ -98,7 +99,7 @@ namespace HenriqueApp.App.Cadastros
             partida.Gol2 = int.TryParse(txtGolDois.Text, out var gol2) ? gol2 : 0;
         }
 
-        private void AtualizaTime(Times timeUm, Times timeDois)
+        private void AtualizaTime(Times timeUm, Times timeDois, Partida? partida = null)
         {
             var camp = (Campeonato)cboCamp.SelectedItem;
             var temp = (Temporada)cboTemp.SelectedItem;
@@ -205,18 +206,21 @@ namespace HenriqueApp.App.Cadastros
 
         protected override void CarregaGrid()
         {
-            partida = _partidaService.Get<PartidaModel>(new List<string> { }).ToList();
+            partida = _partidaService.Get<PartidaModel>(new List<string> { "Time1", "Time2", "TempCampId" }).ToList();
             dataGridViewConsulta.DataSource = partida;
             dataGridViewConsulta.Columns["Id"].Visible = false;
             dataGridViewConsulta.Columns["IdTime1"].Visible = false;
             dataGridViewConsulta.Columns["IdTime2"].Visible = false;
-            dataGridViewConsulta.Columns["NomeTime1"].Visible = false;
-            dataGridViewConsulta.Columns["NomeTime2"].Visible = false;
+            //dataGridViewConsulta.Columns["Time1"].Visible = false;
+            dataGridViewConsulta.Columns["NomeTime1"].Visible = true;
+            dataGridViewConsulta.Columns["NomeTime1"].HeaderText = "Time mandante";
+            dataGridViewConsulta.Columns["NomeTime2"].Visible = true;
+            dataGridViewConsulta.Columns["NomeTime2"].HeaderText = "Time visitante";
             dataGridViewConsulta.Columns["IdTempCamp"].Visible = false;
             dataGridViewConsulta.Columns["NomeCamp"].Visible = false;
+            //dataGridViewConsulta.Columns["NomeCamp"].HeaderText = "Nome campeonato";
             dataGridViewConsulta.Columns["AnoTemporada"].Visible = false;
-            //dataGridViewConsulta.Columns["AnoTemporada"].HeaderText = "Ano";
-            //dataGridViewConsulta.Columns["NomeCampeonato"].HeaderText = "Campeonato";
+            //dataGridViewConsulta.Columns["AnoTemporada"].HeaderText = "AnoTemporada";
         }
 
         protected override void CarregaRegistro(DataGridViewRow? linha)
@@ -224,10 +228,8 @@ namespace HenriqueApp.App.Cadastros
             txtId.Text = linha?.Cells["Id"].Value.ToString();
             txtGolUm.Text = linha?.Cells["Gol1"].Value.ToString();
             txtGolDois.Text = linha?.Cells["Gol2"].Value.ToString();
-            cboCamp.SelectedValue = linha?.Cells["NomeCamp"].Value;
-            cboTemp.SelectedValue = linha?.Cells["AnoTemporada"].Value;
-            cboTimeUm.SelectedValue = linha?.Cells["NomeTime1"].Value;
-            cboTimeDois.SelectedValue = linha?.Cells["NomeTime2"].Value;
+            cboTimeUm.SelectedValue = linha?.Cells["IdTime1"].Value;
+            cboTimeDois.SelectedValue = linha?.Cells["IdTime2"].Value;
         }
 
         protected override void Deletar(int id)
@@ -277,6 +279,11 @@ namespace HenriqueApp.App.Cadastros
                 .ToList();
 
             cboTimeDois.DataSource = timesDisponiveis;
+        }
+
+        private void materialTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

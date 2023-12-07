@@ -19,7 +19,7 @@ namespace HenriqueApp.App.Outros
 
         private void SaoPaulo_Load(object sender, EventArgs e)
         {
-            string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (3)\\HenriqueApp\\HenriqueApp.App\\Resources\\hino.wav";
+            string caminhoMusica = "C:\\Users\\aluno\\Desktop\\teste\\hino.wav";
 
             if (System.IO.File.Exists(caminhoMusica))
             {

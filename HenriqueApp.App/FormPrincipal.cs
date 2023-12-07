@@ -72,7 +72,7 @@ namespace HenriqueApp.App
 
         public void tocaMusica()
         {
-            string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (2)\\HenriqueApp\\HenriqueApp.App\\Resources\\musica.wav";
+            string caminhoMusica = "C:\\Users\\aluno\\Desktop\\teste\\musica.wav";
 
             if (System.IO.File.Exists(caminhoMusica))
             {
@@ -89,7 +89,7 @@ namespace HenriqueApp.App
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            string caminhoMusica = "C:\\Users\\Henrique\\Desktop\\Nova pasta (2)\\HenriqueApp\\HenriqueApp.App\\Resources\\musica.wav";
+            string caminhoMusica = "C:\\Users\\aluno\\Desktop\\teste\\musica.wav";
 
             if (System.IO.File.Exists(caminhoMusica))
             {
