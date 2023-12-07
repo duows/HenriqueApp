@@ -51,7 +51,7 @@ namespace HenriqueApp.App.Cadastros
             cboTemporada.DisplayMember = "Ano";
             cboTemporada.DataSource = _temporadaService.Get<Temporada>().ToList();
 
-            var defaultTimeUm = new Times { Id = 0, Nome = "Escolha o time" };
+            var defaultTimeUm = new Times { Id = 0, Nome = "Nenhum" };
             var timesList = _timeService.Get<Times>().ToList();
             timesList.Insert(0, defaultTimeUm);
 

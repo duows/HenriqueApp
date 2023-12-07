@@ -69,6 +69,7 @@ namespace HenriqueApp.App.Outros
                 dataGridView1.Columns["Golpro"].HeaderText = "Gols marcados";
                 dataGridView1.Columns["NomeTime"].HeaderText = "Time";
                 dataGridView1.Columns["Golcon"].HeaderText = "Gols sofridos";
+
             }
             else
             {

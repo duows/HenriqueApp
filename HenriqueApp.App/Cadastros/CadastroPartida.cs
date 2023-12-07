@@ -166,6 +166,7 @@ namespace HenriqueApp.App.Cadastros
                         PreencheObjeto(partida);
                         partida = _partidaService.Update<Partida, Partida, PartidaValidator>(partida);
                         AtualizaTime(partida.Time1!, partida.Time2!);
+                        MessageBox.Show("Partida salva com sucesso!", @"Henrique App", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -174,7 +175,9 @@ namespace HenriqueApp.App.Cadastros
                     PreencheObjeto(partida);
                     _partidaService.Add<Partida, Partida, PartidaValidator>(partida);
                     AtualizaTime(partida.Time1!, partida.Time2!);
+                    MessageBox.Show("Partida salva com sucesso!", @"Henrique App", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
             catch (Exception ex)
             {
